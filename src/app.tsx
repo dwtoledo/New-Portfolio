@@ -1,12 +1,13 @@
 import { ThemeProvider } from './components/theme-provider'
-import { ModeToggle } from './components/mode-toggle'
+import { Header } from './components/Header'
 import './index.css'
+import { Separator } from './components/ui/separator'
 
 export function App() {
   return (
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-      <h1>Hello New Portfolio</h1>
-      <ModeToggle />
+      <Header />
+      <Separator />
     </ThemeProvider>
   )
 }
