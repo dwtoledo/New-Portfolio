@@ -17,9 +17,12 @@ export function Profile() {
       <div className="flex flex-col gap-8 md:flex-row items-center">
         <div className="flex flex-col items-start gap-2 md:w-[420px]">
           <span className="text-4xl font-semibold">
-            Hey, I'm {profile.name}
+            Hey, I'm {profile.name || 'Douglas Toledo'}
           </span>
-          <code className="bg-muted py-1 font-mono">{profile.bio}</code>
+          <code className="bg-muted py-1 font-mono">
+            {profile.bio ||
+              'Software Engineer | Front End Web Developer | Industry and Entrepreneur Background'}
+          </code>
         </div>
         <Tabs defaultValue="software" className="w-full md:flex-1">
           <TabsList>

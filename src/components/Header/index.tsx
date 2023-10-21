@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { ModeToggle } from '../mode-toggle'
 
 import { GitHubProfileContext } from '@/contexts/github-profile'
+import avatarImg from '../../assets/images/avatar.webp'
 
 export function Header() {
   const { profile } = useContext(GitHubProfileContext)
@@ -13,7 +14,7 @@ export function Header() {
     <header className="container flex flex-col py-4 items-center gap-y-2 sm:flex-row justify-between">
       <div className="flex gap-x-2 items-center">
         <Avatar>
-          <AvatarImage src={profile.avatar_url} />
+          <AvatarImage src={profile.avatar_url || avatarImg} />
           <AvatarFallback>{profile.name || 'Douglas Toledo'}</AvatarFallback>
         </Avatar>
         <span className="text-xl font-extrabold">
