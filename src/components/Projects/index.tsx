@@ -18,10 +18,30 @@ export function Projects() {
   console.log(repos)
   return (
     <div className="container py-20 px-10">
-      <p className="text-2xl font-semibold mb-8">
-        I have <b className="text-primary">{repos.length} public projects</b> on
-        my GitHub:
-      </p>
+      {repos.length ? (
+        <p className="text-2xl font-semibold mb-8">
+          I have <b className="text-primary">{repos.length} public projects</b>{' '}
+          on my GitHub:
+        </p>
+      ) : (
+        <div>
+          <p className="text-2xl font-semibold mb-8">
+            Look's like <b className="text-primary">I'm unable to connect</b>{' '}
+            with my GitHub 😭
+          </p>
+          <a
+            href="https://github.com/dwtoledo"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Button className="flex gap-2 items-center w-fit">
+              <Github className="h-[1.2rem] w-[1.2rem]" />
+              <span>Access my projects on my GitHub</span>
+            </Button>
+          </a>
+        </div>
+      )}
+
       <div className="flex flex-col gap-6 lg:grid grid-cols-2">
         {repos.length
           ? repos.map((repo, index) => {
@@ -85,7 +105,7 @@ export function Projects() {
                 </Card>
               )
             })
-          : 'Error loading projects'}
+          : null}
       </div>
     </div>
   )
