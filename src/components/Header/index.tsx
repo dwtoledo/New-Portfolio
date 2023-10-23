@@ -23,37 +23,32 @@ export function Header() {
       </div>
 
       <div className="flex gap-x-2">
-        <Button asChild>
-          <a
-            href="mailto:dwtoledo@outlook.com"
-            target="_blank"
-            className="flex gap-x-2 justify-center items-center"
-            rel="noreferrer"
-          >
+        <a href="mailto:dwtoledo@outlook.com" target="_blank" rel="noreferrer">
+          <Button className="flex gap-2 items-center">
             <Mail className="h-[1.2rem] w-[1.2rem]" />
-            <span className="hidden sm:inline">Send me a mail</span>
-          </a>
-        </Button>
-        <Button variant="secondary">
-          <a
-            href="https://www.linkedin.com/in/dwtoledo/"
-            target="_blank"
-            rel="noreferrer"
-          >
+            <span className="hidden sm:inline">Send me an email</span>
+          </Button>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/dwtoledo/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Button>
             <Linkedin className="h-[1.2rem] w-[1.2rem]" />
-          </a>
-        </Button>
-        <Button variant="secondary">
-          <a
-            href={`https://github.com/${
-              profile.login ? profile.login : 'dwtoledo'
-            }`}
-            target="_blank"
-            rel="noreferrer"
-          >
+          </Button>
+        </a>
+        <a
+          href={`https://github.com/${
+            profile.login ? profile.login : 'dwtoledo'
+          }`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Button>
             <Github className="h-[1.2rem] w-[1.2rem]" />
-          </a>
-        </Button>
+          </Button>
+        </a>
         <ModeToggle />
       </div>
     </header>
