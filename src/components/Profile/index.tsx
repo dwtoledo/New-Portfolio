@@ -18,7 +18,7 @@ export function Profile() {
     <div className="container py-20 px-10 md:px-20">
       <div className="flex flex-col gap-8 md:flex-row items-center">
         <div className="flex flex-col items-start gap-2 md:w-[420px]">
-          <span className="text-4xl font-semibold">
+          <span className="text-4xl font-bold">
             Hey, I'm {profile.name || 'Douglas Toledo'}
           </span>
           <code className="bg-muted py-1 font-mono">
