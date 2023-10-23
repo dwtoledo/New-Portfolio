@@ -58,11 +58,35 @@ export function Profile() {
                   excellence through innovative solutions.
                   <br />
                   <br />
-                  Technologies I've experience with:
-                  <Badge className="ml-1">React</Badge>
+                  Skills:
+                  <Badge className="ml-1">Accessibility</Badge>
+                  <Badge className="ml-1">Agile Methodology</Badge>
                   <Badge className="ml-1">Angular 8+</Badge>
                   <Badge className="ml-1">AngularJS</Badge>
+                  <Badge className="ml-1">Bootstrap</Badge>
+                  <Badge className="ml-1">CI/CD</Badge>
+                  <Badge className="ml-1">CSS</Badge>
+                  <Badge className="ml-1">Data Modelling</Badge>
+                  <Badge className="ml-1">Data Structures</Badge>
                   <Badge className="ml-1">Figma</Badge>
+                  <Badge className="ml-1">Git</Badge>
+                  <Badge className="ml-1">GitFlow</Badge>
+                  <Badge className="ml-1">HTML</Badge>
+                  <Badge className="ml-1">JavaScript</Badge>
+                  <Badge className="ml-1">JSON</Badge>
+                  <Badge className="ml-1">Microsoft Azure DevOps</Badge>
+                  <Badge className="ml-1">OOP</Badge>
+                  <Badge className="ml-1">Responsive Design</Badge>
+                  <Badge className="ml-1">REST API</Badge>
+                  <Badge className="ml-1">SASS</Badge>
+                  <Badge className="ml-1">Scrum Methodology</Badge>
+                  <Badge className="ml-1">SCSS</Badge>
+                  <Badge className="ml-1">Team Leadership</Badge>
+                  <Badge className="ml-1">Troubleshooting</Badge>
+                  <Badge className="ml-1">TypeScript</Badge>
+                  <Badge className="ml-1">UML</Badge>
+                  <Badge className="ml-1">UX/UI</Badge>
+                  <Badge className="ml-1">+ More</Badge>
                 </span>
               </CardContent>
             </Card>
@@ -86,7 +110,7 @@ export function Profile() {
                   <br />
                   <br />
                   <div className="flex gap-1 items-center flex-wrap">
-                    <span>Soft skills I use to this day:</span>
+                    <span>Skills:</span>
                     <Badge>Adaptability</Badge>
                     <Badge>Communication</Badge>
                     <Badge>Conflict Resolution</Badge>
@@ -126,7 +150,7 @@ export function Profile() {
                   <br />
                   <br />
                   <div className="flex gap-1 items-center flex-wrap">
-                    <span>Soft skills I use to this day:</span>
+                    <span>Skills:</span>
                     <Badge>Customer Focus</Badge>
                     <Badge>Innovation</Badge>
                     <Badge>Networking</Badge>
