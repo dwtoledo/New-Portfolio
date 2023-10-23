@@ -1,8 +1,8 @@
-import { Dispatch, SetStateAction, createContext } from 'react'
+import { createContext } from 'react'
 
 interface GitHubProfileContextModel {
   profile: any
-  setProfile: Dispatch<SetStateAction<any>>
+  repos: Array<any>
 }
 
 export const GitHubProfileContext = createContext(
