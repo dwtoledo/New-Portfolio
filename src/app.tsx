@@ -29,6 +29,7 @@ export function App() {
         <Header />
         <Separator />
         <Profile />
+        <Separator />
       </GitHubProfileContext.Provider>
     </ThemeProvider>
   )
