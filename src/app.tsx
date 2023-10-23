@@ -8,6 +8,7 @@ import { GitHubProfileContext } from './contexts/github-profile'
 
 import './index.css'
 import { Projects } from './components/Projects'
+import { Footer } from './components/Footer'
 
 const publicRepoNamesToRemove = ['New-Portfolio', 'dwtoledo']
 
@@ -55,6 +56,8 @@ export function App() {
         <Profile />
         <Separator />
         <Projects />
+        <Separator />
+        <Footer />
       </GitHubProfileContext.Provider>
     </ThemeProvider>
   )
