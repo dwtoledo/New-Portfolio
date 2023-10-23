@@ -62,6 +62,7 @@ export function Profile() {
                   <Badge className="ml-1">React</Badge>
                   <Badge className="ml-1">Angular 8+</Badge>
                   <Badge className="ml-1">AngularJS</Badge>
+                  <Badge className="ml-1">Figma</Badge>
                 </span>
               </CardContent>
             </Card>
