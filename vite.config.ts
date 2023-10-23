@@ -4,7 +4,6 @@ import eslint from 'vite-plugin-eslint'
 import path from 'path'
 
 export default defineConfig({
-  base: '/New-Portfolio',
   plugins: [react(), eslint()],
   resolve: {
     alias: {
