@@ -15,7 +15,7 @@ export function Profile() {
   const { profile } = useContext(GitHubProfileContext)
 
   return (
-    <main className="container py-20 px-10 md:px-20">
+    <div className="container py-20 px-10 md:px-20">
       <div className="flex flex-col gap-8 md:flex-row items-center">
         <div className="flex flex-col items-start gap-2 md:w-[420px]">
           <span className="text-4xl font-semibold">
@@ -143,6 +143,6 @@ export function Profile() {
           </TabsContent>
         </Tabs>
       </div>
-    </main>
+    </div>
   )
 }
