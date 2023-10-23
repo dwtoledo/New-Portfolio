@@ -5,6 +5,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react(), eslint()],
+  base: '/New-Portfolio',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
