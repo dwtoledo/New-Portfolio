@@ -81,8 +81,8 @@ export function Profile() {
               </CardHeader>
               <CardContent>
                 <span>
-                  Before I migrated to the Software Development area I worked at
-                  Flex, one of the world's largest electronics manufacturers.
+                  Before I migrated to the Software Development area I worked in
+                  one of the world's largest electronics manufacturers.
                   <br />
                   <br />
                   <div className="flex gap-1 items-center flex-wrap">
