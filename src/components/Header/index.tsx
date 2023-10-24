@@ -11,7 +11,7 @@ export function Header() {
   const { profile } = useContext(GitHubProfileContext)
 
   return (
-    <header className="container flex flex-col py-4 items-center gap-y-2 sm:flex-row justify-between">
+    <header className="container bg-background border-b flex flex-col py-4 items-center gap-y-2 sm:flex-row justify-between sticky top-0 z-10">
       <div className="flex gap-x-2 items-center">
         <Avatar>
           <AvatarImage src={profile.avatar_url || avatarImg} />
