@@ -72,13 +72,19 @@ A simple and concise profile info on my page could be:
 > *I'm a developer and I don't recognize some tech items above. Can you imagine a recruiter?*
 
 > **Note**
-> GitHub has an API that can be used to receive data from a public profile.
+> GitHub API can be used to retrieve data from a public profile.
 >
-> In my case, (1) I use my name and bio data from the URL from:
+> My data can be accessed from Url below. For yours, just replace 'dwtoledo' with your GitHub UserName.
+> 
 > ```
 > https://api.github.com/users/dwtoledo
 > ```
-> (2) I added technology and soft skills information as tags below my Software, Industry, and Entrepreneurship's overviews (3).
+> 
+> - I used my ***name and bio data from GitHub API***;
+> 
+> - added my Software, Industry, and Entrepreneurship ***background overview***, and;
+> 
+> - added my ***technology and soft skills tags***.
 > 
 > Result on Light Mode was:
 > 
@@ -94,5 +100,60 @@ A simple and concise profile info on my page could be:
 
 
 ## Projects:
+Images can be more impressive than long texts, so consider using images or even GIFs as project banner. A good project presentation could include:
+- A ***large banner***;
+- A ***concise description***;
+- a ***list of technologies used***;
+- ***buttons to access*** it;
+- Use ***mobile-first*** methodology;
+- Try to use the best ***media compression technologies***, YouTube embed URLs, and more.
+
+> **Warning**
+> Again, ***don't use technology icons only;***
+> 
+> ***Don't hide your projects*** on slider or similar components;
+> 
+> ***Don't use large files/videos***, as this will increase page loading time. 
+
+> **Important**
+> New ***projects must be easily or automatically added to the portfolio*** as soon as the project is published.
+>
+> You could use a ***mocked JSON*** to provide the project data for your portfolio, because you just need to ***modify the JSON to add, remove, or update your project presentations***.
+
+> **Note**
+> ***GitHub API*** can be used to ***retrieve public repos data*** from a user.
+>
+> My data can be accessed from Url below. For yours, just replace 'dwtoledo' with your GitHub UserName.
+>
+> ```
+> https://api.github.com/users/dwtoledo/repos
+> ```
+> Unfortunately, the repository's social preview image is not available on this API. For this reason, I saved my banners in the root folder of the project's repository with the name "social-banner.webp"; to access them, I use the following URL:
+> ```
+> https://raw.githubusercontent.com/dwtoledo/challenge-01-ignite/main/social-banner.webp
+> ```
+> *"challenge-01-ignite"* is the my repository name and *"main"* is the branch that I developed the project;
+>
+> I used the following data to develop my project cards:
+> - ***Name*** for card titile;
+> - ***Tags*** for card tags below titles;
+> - ***Description*** for card description;
+> - ***Github url*** for user click button;
+> - ***Published url*** for user click button, and;
+> - ***Github repository id*** to sort the projects from newest to oldest;
+>
+> Result on Light Mode was:
+> 
+> ![image](https://github.com/dwtoledo/New-Portfolio/assets/11148858/be7f2004-e4dc-45b9-92c0-6e2034d1a166)
+> 
+> Result on Dark Mode was:
+> 
+> ![image](https://github.com/dwtoledo/New-Portfolio/assets/11148858/84efdee9-3150-4b5b-a2e5-b1465675daec)
+> 
+> Result on Mobile was:
+> 
+> ![image](https://github.com/dwtoledo/New-Portfolio/assets/11148858/14d886bb-54b9-4e17-b08a-b1bece512b5b)
+
+
 ## Contacts:
 ## Footer:
