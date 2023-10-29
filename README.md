@@ -154,6 +154,46 @@ Images can be more impressive than long texts, so consider using images or even 
 > 
 > ![image](https://github.com/dwtoledo/New-Portfolio/assets/11148858/14d886bb-54b9-4e17-b08a-b1bece512b5b)
 
-
 ## Contacts:
+The contacts are available on the floating header, so instead of repeating the contacts, ***consider adding a engaging and or breaking ice message to the recruiter***.
+I used *ChatGPT to generate 5 inviting phrases* for the recruiter, and the results were:
+1. "I'm open to challenging opportunities and eager to learn how I can contribute to your company's success. Let's talk!"
+2. "I would be delighted to discuss how my experience and skills can be an asset to your team. Please feel free to reach out for an exploratory conversation."
+3. "If you liked what you saw in my portfolio, I'm available to delve deeper into the conversation and explore how I can help meet your needs."
+4. "I would love to share more about my work and discover how my skills can align with your company's requirements. Let's schedule a conversation?"
+5. "My portfolio is just a small glimpse of what I can do. I'm excited to discuss collaboration opportunities. Get in touch, and let's start a conversation about what we can achieve together."
+
+> **Note**
+> Result on Light Mode was:
+>
+> ![image](https://github.com/dwtoledo/New-Portfolio/assets/11148858/3dc11cca-168b-401d-b1ce-d73678d945c7)
+>
+> Result on Dark Mode was:
+> 
+> ![image](https://github.com/dwtoledo/New-Portfolio/assets/11148858/3f64df7f-7bd1-4353-962b-d4c14932f927)
+>
+> Result on Mobile was:
+>
+> ![image](https://github.com/dwtoledo/New-Portfolio/assets/11148858/0f2cbafe-3e74-4b73-9fb1-9046823f9bb6)
+
+
 ## Footer:
+***Simple and professional*** to avoid distracting the user from the above convidative contact message.
+- ***Currently year***;
+- ***"Developed by"*** message, and;
+- ***Technology used***.
+
+> **Note**
+> Result on Light Mode was:
+> 
+> ![image](https://github.com/dwtoledo/New-Portfolio/assets/11148858/e620b6b1-033c-4073-8071-8287e2d02ec0)
+> 
+> Result on Dark Mode was:
+> 
+>![image](https://github.com/dwtoledo/New-Portfolio/assets/11148858/017d5397-14e9-4643-a7ef-85f7d44d92a8)
+> 
+> Result on Mobile was:
+> 
+> ![image](https://github.com/dwtoledo/New-Portfolio/assets/11148858/b94b1318-a062-4bbd-ba0e-3f3a805653ae)
+
+
