@@ -15,7 +15,6 @@ import { Badge } from '../ui/badge'
 
 export function Projects() {
   const { repos } = useContext(GitHubProfileContext)
-  console.log(repos)
   return (
     <div className="container py-20 px-10">
       {repos.length ? (
@@ -57,7 +56,9 @@ export function Projects() {
                     {repo.topics ? (
                       <div className="flex gap-1 items-center flex-wrap py-4">
                         {repo.topics.map((topic: string) => (
-                          <Badge variant="outline">{topic}</Badge>
+                          <Badge key={topic} variant="outline">
+                            {topic}
+                          </Badge>
                         ))}
                       </div>
                     ) : null}

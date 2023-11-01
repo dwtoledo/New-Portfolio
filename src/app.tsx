@@ -37,7 +37,6 @@ export function App() {
           data,
           publicRepoNamesToRemove,
         )
-        console.log(portfolioRepos)
         setRepos(portfolioRepos)
       }),
     )
