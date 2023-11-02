@@ -8,7 +8,6 @@ import { GitHubProfileContext } from '@/contexts/github-profile'
 import avatarImg from '../../assets/images/avatar.webp'
 
 export function Header() {
-  console.log(import.meta.env.VITE_LINKEDIN_URL)
   const { profile } = useContext(GitHubProfileContext)
 
   return (
