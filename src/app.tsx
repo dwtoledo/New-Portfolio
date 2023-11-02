@@ -11,7 +11,7 @@ import { Projects } from './components/Projects'
 import { Footer } from './components/Footer'
 import { Contact } from './components/Contact'
 
-const publicRepoNamesToRemove = ['New-Portfolio', 'dwtoledo']
+const publicRepoNamesToRemove = ['portfolio', 'dwtoledo']
 
 export function App() {
   const [profile, setProfile] = useState({})
