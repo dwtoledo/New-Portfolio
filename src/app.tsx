@@ -11,7 +11,15 @@ import { Projects } from './components/Projects'
 import { Footer } from './components/Footer'
 import { Contact } from './components/Contact'
 
-const publicRepoNamesToRemove = ['portfolio', 'dwtoledo']
+const publicRepoNamesToRemove = [
+  'portfolio',
+  'dwtoledo',
+  'Ignite-Todo-List',
+  'Gmail-Clone',
+  'Google-Search-Clone',
+  'Funko-Store',
+  'JS-Unit-Tests-with-Jest',
+]
 
 export function App() {
   const [profile, setProfile] = useState({})
