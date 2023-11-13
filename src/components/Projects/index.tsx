@@ -19,8 +19,8 @@ export function Projects() {
     <div className="container py-20 px-10">
       {repos.length ? (
         <p className="text-2xl font-semibold mb-8">
-          I have <b className="text-primary">{repos.length} public projects</b>{' '}
-          on my GitHub:
+          Check out these{' '}
+          <b className="text-primary">{repos.length} projects</b> in my GitHub:
         </p>
       ) : (
         <div>
