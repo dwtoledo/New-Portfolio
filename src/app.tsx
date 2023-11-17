@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react'
-import { ThemeProvider } from './components/theme-provider'
-import { Header } from './components/Header'
-import { Separator } from './components/ui/separator'
-import { Profile } from './components/Profile'
-
 import { GitHubProfileContext } from './contexts/github-profile'
 
-import './index.css'
+import { ThemeProvider } from './components/theme-provider'
+import { Separator } from './components/ui/separator'
+import { Header } from './components/Header'
+import { Profile } from './components/Profile'
 import { Projects } from './components/Projects'
 import { Footer } from './components/Footer'
 import { Contact } from './components/Contact'
+import { AIChat } from './components/AIChat'
+
+import './index.css'
 
 const publicRepoNamesToRemove = [
   'portfolio',
@@ -68,6 +69,7 @@ export function App() {
         <Separator />
         <Contact />
         <Separator />
+        <AIChat />
         <Footer />
       </GitHubProfileContext.Provider>
     </ThemeProvider>
