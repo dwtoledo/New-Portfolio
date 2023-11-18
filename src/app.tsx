@@ -15,7 +15,6 @@ import './index.css'
 const publicRepoNamesToRemove = [
   'portfolio',
   'dwtoledo',
-  'Ignite-Todo-List',
   'Gmail-Clone',
   'Google-Search-Clone',
   'Funko-Store',
@@ -25,7 +24,6 @@ const publicRepoNamesToRemove = [
 export function App() {
   const [profile, setProfile] = useState({})
   const [repos, setRepos] = useState([])
-  const [allRepos, setAllRepos] = useState([])
 
   useEffect(() => {
     getGitHubProfileData()
@@ -46,9 +44,7 @@ export function App() {
         const allPortfolioRepos = data.sort(
           (a: { id: number }, b: { id: number }) => b.id - a.id,
         )
-        const filteredPortfolioRepos = removeSpecificRepos(allPortfolioRepos)
-        setAllRepos(allPortfolioRepos)
-        setRepos(filteredPortfolioRepos)
+        setRepos(removeSpecificRepos(allPortfolioRepos))
       }),
     )
   }
