@@ -22,7 +22,7 @@ concurrency:
   
 # Allow repo secrets
 env:
-  OPEN_AI_API_KEY: ${{ secrets.OPEN_AI_API_KEY }}
+  VITE_OPEN_AI_API_KEY: ${{ secrets.VITE_OPEN_AI_API_KEY }}
 
 jobs:
   # Single deploy job since we're just deploying
@@ -34,7 +34,7 @@ jobs:
     steps:
       - name: Debug Environment Variables
         run: |
-          echo "OPEN_AI_API_KEY=${OPEN_AI_API_KEY} antes do build"
+          echo "VITE_OPEN_AI_API_KEY=${VITE_OPEN_AI_API_KEY} antes do build"
           env
       - name: Checkout
         uses: actions/checkout@v4
@@ -57,7 +57,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-      - name: Debug Environment Variables 2
-        run: |
-          echo "OPEN_AI_API_KEY=${OPEN_AI_API_KEY} depois do build"
-          env
