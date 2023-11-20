@@ -2,7 +2,8 @@ import { FormEvent, useContext, useEffect, useRef, useState } from 'react'
 import { GitHubProfileContext } from '../../contexts/github-profile'
 import ReactMarkdown, { Components } from 'react-markdown'
 import { Bot, Loader2 } from 'lucide-react'
-import genericAvatar from '../../assets/images/generic-avatar.svg'
+import botAvatar from '../../assets/images/bot-avatar.webp'
+import genericAvatar from '../../assets/images/generic-avatar.webp'
 
 import {
   Card,
@@ -89,7 +90,7 @@ export function AIChat() {
   const [chats, setChats] = useState<Array<MessageParam>>([])
   const [isTyping, setIsTyping] = useState(false)
   const [submitForm, setSubmitForm] = useState(false)
-  const { repos, profile } = useContext(GitHubProfileContext)
+  const { repos } = useContext(GitHubProfileContext)
   const chatWrapper = useRef<HTMLUListElement>(null)
   const formRef = useRef<HTMLFormElement | null>(null)
 
@@ -205,7 +206,7 @@ export function AIChat() {
   function createMessagesRequest(messages: Array<MessageParam>) {
     const principalMessage: MessageParam = {
       role: 'user',
-      content: `Meu nome é Douglas, tenho 32 anos, sou desenvolvedor front-end e estou desempregado em busca de uma recolocação no mercado de trabalho. Abaixo segue meu currículo e alguns projetos pessoais no Github, ambos estão em inglês. As próximas mensagens serão perguntas de recrutadores. Por favor, responda como se fosse eu, seja objetivo e profissional, insira link para o projeto do github caso a resposta cite o projeto, usando o mesmo idioma da pergunta. Responda as perguntas apenas se ela estiver relacionada ao meu perfil profissional, experiência de trabalho, habilidades técnicas ou projetos no Github. A pergunta deve contribuir para a avaliação de minha adequação para um processo seletivo ou estar diretamente relacionada ao meu currículo. Não reponder que trabalhei profissionalmente com uma tecnologia que o recrutador perguntou e que não consta no meu currículo. A resposta deve estar em markdown. O meu currículo é: '''${myProfessionalBackground}'''. Os meus projetos no GitHub são: '''${convertReposInText()}'''`,
+      content: `Meu nome é Douglas, tenho 32 anos, sou desenvolvedor front-end e estou desempregado em busca de uma recolocação no mercado de trabalho. Abaixo segue meu currículo e alguns projetos pessoais no Github, ambos estão em inglês. As próximas mensagens serão perguntas de recrutadores. Por favor, responda como se fosse eu, seja objetivo e profissional, insira link para o projeto do github caso a resposta cite algum projeto, usando o mesmo idioma da pergunta. Responda as perguntas apenas se ela estiver relacionada ao meu perfil profissional, experiência de trabalho, habilidades técnicas ou projetos no Github. A pergunta deve contribuir para a avaliação de minha adequação para um processo seletivo ou estar diretamente relacionada ao meu currículo. Não reponder que trabalhei profissionalmente com uma tecnologia que o recrutador perguntou e que não consta no meu currículo. A resposta deve estar em markdown. O meu currículo é: '''${myProfessionalBackground}'''. Os meus projetos no GitHub são: '''${convertReposInText()}'''`,
     }
     if (chats.length < 3) {
       return [principalMessage, ...messages]
@@ -252,7 +253,7 @@ export function AIChat() {
                   children={chat.content}
                 />
               </div>
-              <Avatar className="h-7 w-7 border-2	border-border">
+              <Avatar className="h-6 w-6">
                 <AvatarImage src={genericAvatar} />
                 <AvatarFallback>User</AvatarFallback>
               </Avatar>
@@ -266,8 +267,8 @@ export function AIChat() {
             className="self-start w-full py-4 border-b last:border-b-0 last:pb-0"
           >
             <div className="flex justify-start items-start gap-4">
-              <Avatar className="h-7 w-7 border-2	border-border">
-                <AvatarImage src={profile.avatar_url} />
+              <Avatar className="h-6 w-6">
+                <AvatarImage src={botAvatar} />
                 <AvatarFallback>AI Assistant</AvatarFallback>
               </Avatar>
               <div className="flex flex-col">
