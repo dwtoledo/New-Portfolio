@@ -137,7 +137,7 @@ export function AIChat() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_KEY}`,
+          'Authorization': `Bearer ${process.env.OPEN_AI_API_KEY}`,
         },
         signal: controller.signal,
         body: JSON.stringify({
