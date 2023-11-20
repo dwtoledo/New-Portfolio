@@ -32,6 +32,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest      
     steps:
+      - name: Debug Environment Variables
+        run: |
+          echo "OPEN_AI_API_KEY=${OPEN_AI_API_KEY} antes do build"
+          env
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Node
@@ -53,3 +57,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+      - name: Debug Environment Variables 2
+        run: |
+          echo "OPEN_AI_API_KEY=${OPEN_AI_API_KEY} depois do build"
+          env
