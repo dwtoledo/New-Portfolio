@@ -11,10 +11,10 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+} from '@/components/ui/card'
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
-import { Input } from "@/components/ui/input"
+import { Input } from '@/components/ui/input'
 
 const myProfessionalBackground = `
 Name: Douglas Wilian de Toledo
@@ -73,7 +73,7 @@ const customReactMarkdownComponent: Partial<Components> = {
 }
 
 interface MessageParam {
-  role: string,
+  role: string
   content: string
 }
 
@@ -90,19 +90,28 @@ export function AIChat() {
 
   function observeChatMessages() {
     const observer = new MutationObserver(mutationList =>
-      mutationList.filter(mutation => mutation.type === 'childList').forEach(mutation => {
-        mutation.addedNodes.forEach(() => {
-          if (chatWrapper.current) {
-            const { current } = chatWrapper;
-            if (current.children.length > 0) {
-              const lastChild = current.children[current.children.length - 1] as HTMLElement;
-              lastChild.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      mutationList
+        .filter(mutation => mutation.type === 'childList')
+        .forEach(mutation => {
+          mutation.addedNodes.forEach(() => {
+            if (chatWrapper.current) {
+              const { current } = chatWrapper
+              if (current.children.length > 0) {
+                const lastChild = current.children[
+                  current.children.length - 1
+                ] as HTMLElement
+                lastChild.scrollIntoView({
+                  behavior: 'smooth',
+                  block: 'nearest',
+                })
+              }
             }
-          }
-        });
-      }));
+          })
+        }),
+    )
 
-    if (chatWrapper.current) observer.observe(chatWrapper.current, { childList: true, subtree: true });
+    if (chatWrapper.current)
+      observer.observe(chatWrapper.current, { childList: true, subtree: true })
   }
 
   function convertReposInText() {
@@ -110,8 +119,12 @@ export function AIChat() {
     let convertion: Array<any> = []
     repos.forEach((repo, index) => {
       convertion.push(
-        `Project #${index + 1} --- Project Name: ${repo.name} --- Project Description: ${repo.description
-        } --- Project tags: ${repo.topics.join(', ')} --- Project link: ${repo.html_url
+        `Project #${index + 1} --- Project Name: ${
+          repo.name
+        } --- Project Description: ${
+          repo.description
+        } --- Project tags: ${repo.topics.join(', ')} --- Project link: ${
+          repo.html_url
         }`,
       )
     })
@@ -119,52 +132,57 @@ export function AIChat() {
   }
 
   async function chat(event: FormEvent, message: string) {
-    event.preventDefault();
+    event.preventDefault()
 
-    if (!message) return;
-    let messages = chats;
-    messages.push({ role: 'user', content: message });
+    if (!message) return
+    let messages = chats
+    messages.push({ role: 'user', content: message })
 
-    setIsTyping(true);
-    setChats(messages);
-    setMessage('');
+    setIsTyping(true)
+    setChats(messages)
+    setMessage('')
 
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 90000);
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 90000)
 
     try {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${import.meta.env.VITE_OPEN_AI_API_KEY}`,
+      const response = await fetch(
+        'https://api.openai.com/v1/chat/completions',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${import.meta.env.VITE_OPEN_AI_API_KEY}`,
+          },
+          signal: controller.signal,
+          body: JSON.stringify({
+            model: 'gpt-3.5-turbo',
+            temperature: 0,
+            messages: createMessagesRequest(messages),
+          }),
         },
-        signal: controller.signal,
-        body: JSON.stringify({
-          model: 'gpt-3.5-turbo',
-          temperature: 0,
-          messages: createMessagesRequest(messages),
-        }),
-      });
+      )
 
       if (!response.ok) {
-        throw new Error(`AI Assistant error: ${response.status} - ${response.statusText}`);
+        throw new Error(
+          `AI Assistant error: ${response.status} - ${response.statusText}`,
+        )
       }
 
-      const responseData = await response.json();
-      messages.push(responseData.choices[0].message);
-      setChats(messages);
-      setIsTyping(false);
-
+      const responseData = await response.json()
+      messages.push(responseData.choices[0].message)
+      setChats(messages)
+      setIsTyping(false)
     } catch (error) {
       messages.push({
-        content: "⚠️ Unfortunately, I was unable to come up with a response in time. Please try again later.", role: "assistant"
-      });
-      setChats(messages);
-      setIsTyping(false);
-
+        content:
+          '⚠️ Unfortunately, I was unable to come up with a response in time. Please try again later.',
+        role: 'assistant',
+      })
+      setChats(messages)
+      setIsTyping(false)
     } finally {
-      clearTimeout(timeoutId);
+      clearTimeout(timeoutId)
     }
   }
 
@@ -182,16 +200,22 @@ export function AIChat() {
   function getInputFormButton() {
     if (isTyping) {
       return (
-        <Button type="submit" disabled={isTyping} className='w-36 flex gap-2'>
+        <Button type="submit" disabled={isTyping} className="w-36 flex gap-2">
           <Loader2 className="h-4 w-4 animate-spin" />
           <span>AI Thinking... </span>
-        </Button>)
+        </Button>
+      )
     } else {
       return (
-        <Button type="submit" disabled={isTyping} className='w-36 flex gap-2 items-center'>
+        <Button
+          type="submit"
+          disabled={isTyping}
+          className="w-36 flex gap-2 items-center"
+        >
           <Bot className="h-4 w-4" />
           <span>Ask me!</span>
-        </Button>)
+        </Button>
+      )
     }
   }
 
@@ -199,16 +223,20 @@ export function AIChat() {
     switch (chat.role) {
       case 'user':
         return (
-          <li key={index} className='self-end w-full py-4 border-b last:border-b-0 last:pb-0'>
-            <div className='flex justify-end items-start gap-4 '>
-              <div className='flex flex-col items-end'>
-                <span className='font-extrabold text-primary'>You:</span>
-                <ReactMarkdown className="leading-relaxed"
+          <li
+            key={index}
+            className="self-end w-full py-4 border-b last:border-b-0 last:pb-0"
+          >
+            <div className="flex justify-end items-start gap-4 ">
+              <div className="flex flex-col items-end">
+                <span className="font-extrabold text-primary">You:</span>
+                <ReactMarkdown
+                  className="leading-relaxed"
                   components={customReactMarkdownComponent}
                   children={chat.content}
                 />
               </div>
-              <Avatar className='h-7 w-7 border-2	border-border'>
+              <Avatar className="h-7 w-7 border-2	border-border">
                 <AvatarImage src={genericAvatar} />
                 <AvatarFallback>User</AvatarFallback>
               </Avatar>
@@ -217,17 +245,21 @@ export function AIChat() {
         )
       case 'assistant':
         return (
-          <li key={index} className='self-start w-full py-4 border-b last:border-b-0 last:pb-0'>
-            <div className='flex justify-start items-start gap-4'>
-              <Avatar className='h-7 w-7 border-2	border-border'>
+          <li
+            key={index}
+            className="self-start w-full py-4 border-b last:border-b-0 last:pb-0"
+          >
+            <div className="flex justify-start items-start gap-4">
+              <Avatar className="h-7 w-7 border-2	border-border">
                 <AvatarImage src={profile.avatar_url} />
                 <AvatarFallback>AI Assistant</AvatarFallback>
               </Avatar>
-              <div className='flex flex-col'>
-                <span className='font-extrabold text-primary'>
+              <div className="flex flex-col">
+                <span className="font-extrabold text-primary">
                   AI Assistant:
                 </span>
-                <ReactMarkdown className="leading-relaxed"
+                <ReactMarkdown
+                  className="leading-relaxed"
                   components={customReactMarkdownComponent}
                   children={chat.content}
                 />
@@ -241,7 +273,7 @@ export function AIChat() {
   }
 
   return (
-    <Card>
+    <Card className="border-0">
       <CardHeader>
         <CardTitle>Chat with our AI Assistant!</CardTitle>
         <CardDescription>
@@ -249,16 +281,21 @@ export function AIChat() {
           <br /> Please confirm the AI responses with a Douglas interview.
         </CardDescription>
       </CardHeader>
-      <CardContent className='max-h-80 overflow-y-scroll'>
-        <ul className='flex flex-col' ref={chatWrapper}>
-          {chats?.length ? chats.map((chat, index) => createChatMessage(chat, index)) : null}
+      <CardContent className="max-h-80 overflow-y-scroll">
+        <ul className="flex flex-col" ref={chatWrapper}>
+          {chats?.length
+            ? chats.map((chat, index) => createChatMessage(chat, index))
+            : null}
         </ul>
       </CardContent>
       <CardFooter>
-        <form onSubmit={event => chat(event, message)} className='flex gap-2 w-full mt-4'>
+        <form
+          onSubmit={event => chat(event, message)}
+          className="flex gap-2 w-full mt-4"
+        >
           <Input
             type="text"
-            className='flex-1'
+            className="flex-1"
             placeholder="Type your question..."
             value={message}
             onChange={event => setMessage(event.target.value)}
@@ -268,6 +305,6 @@ export function AIChat() {
           {getInputFormButton()}
         </form>
       </CardFooter>
-    </Card >
+    </Card>
   )
 }
