@@ -15,6 +15,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Badge } from '../ui/badge'
 
 const myProfessionalBackground = `
 Name: Douglas Wilian de Toledo
@@ -51,6 +52,12 @@ LANGUAGES:
   • Fluent in English;
   • Portuguese as mother language.`
 
+const questionExamples = [
+  'What is Douglas most recent work experience?',
+  'What are Douglas strengths?',
+  'What soft skills does Douglas have?',
+]
+
 const customReactMarkdownComponent: Partial<Components> = {
   a: ({ node, children, ...props }) => {
     if (props.href?.includes('http')) {
@@ -81,12 +88,21 @@ export function AIChat() {
   const [message, setMessage] = useState('')
   const [chats, setChats] = useState<Array<MessageParam>>([])
   const [isTyping, setIsTyping] = useState(false)
+  const [submitForm, setSubmitForm] = useState(false)
   const { repos, profile } = useContext(GitHubProfileContext)
   const chatWrapper = useRef<HTMLUListElement>(null)
+  const formRef = useRef<HTMLFormElement | null>(null)
 
   useEffect(() => {
     observeChatMessages()
   }, [])
+
+  useEffect(() => {
+    if (formRef.current && submitForm && message) {
+      formRef.current.requestSubmit()
+      setSubmitForm(false)
+    }
+  }, [submitForm])
 
   function observeChatMessages() {
     const observer = new MutationObserver(mutationList =>
@@ -272,6 +288,11 @@ export function AIChat() {
     }
   }
 
+  function submitFormWithExample(example: string) {
+    setMessage(example)
+    setSubmitForm(true)
+  }
+
   return (
     <Card className="border-0">
       <CardHeader>
@@ -282,6 +303,21 @@ export function AIChat() {
         </CardDescription>
       </CardHeader>
       <CardContent className="max-h-80 overflow-y-scroll">
+        <div className="flex flex-col gap-3">
+          {questionExamples.map(example => {
+            return (
+              <Badge
+                key={example}
+                variant="secondary"
+                className="self-start hover:cursor-pointer"
+                onClick={() => submitFormWithExample(example)}
+              >
+                {example}
+              </Badge>
+            )
+          })}
+        </div>
+
         <ul className="flex flex-col" ref={chatWrapper}>
           {chats?.length
             ? chats.map((chat, index) => createChatMessage(chat, index))
@@ -290,6 +326,7 @@ export function AIChat() {
       </CardContent>
       <CardFooter>
         <form
+          ref={formRef}
           onSubmit={event => chat(event, message)}
           className="flex gap-2 w-full mt-4"
         >
