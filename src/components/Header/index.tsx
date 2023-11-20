@@ -44,9 +44,7 @@ export function Header() {
             </Button>
           </a>
           <a
-            href={`https://github.com/${
-              profile.login ? profile.login : 'dwtoledo'
-            }`}
+            href={'https://github.com/dwtoledo'}
             target="_blank"
             rel="noreferrer"
           >
