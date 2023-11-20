@@ -27,8 +27,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    env:
-      OPEN_AI_API_KEY: ${{ secrets.OPEN_AI_API_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -43,6 +41,8 @@ jobs:
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v3
+        with:
+          OPEN_AI_API_KEY: ${{ secrets.OPEN_AI_API_KEY }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
