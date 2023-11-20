@@ -62,10 +62,13 @@ export function App() {
         <Profile />
         <Separator />
         <Projects />
+        <Separator className='lg:hidden' />
+        <div className='lg:hidden'>
+          <AIChat />
+        </div>
         <Separator />
         <Contact />
         <Separator />
-        <AIChat />
         <Footer />
       </GitHubProfileContext.Provider>
     </ThemeProvider>

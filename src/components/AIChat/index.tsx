@@ -1,9 +1,7 @@
 import { FormEvent, useContext, useEffect, useRef, useState } from 'react'
 import { GitHubProfileContext } from '../../contexts/github-profile'
-import { OpenAI } from 'openai'
-import { ChatCompletionMessageParam } from 'openai/resources/chat/index.mjs'
 import ReactMarkdown, { Components } from 'react-markdown'
-import { Loader2, Send } from 'lucide-react'
+import { Bot, Loader2 } from 'lucide-react'
 import genericAvatar from '../../assets/images/generic-avatar.svg'
 
 import {
@@ -18,46 +16,40 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from '@/components/ui/button'
 import { Input } from "@/components/ui/input"
 
-const openai = new OpenAI({
-  organization: import.meta.env.VITE_OPENAI_ORGANIZATION_ID,
-  apiKey: import.meta.env.VITE_OPENAI_KEY,
-  dangerouslyAllowBrowser: true,
-})
-
 const myProfessionalBackground = `
 Name: Douglas Wilian de Toledo
 Address: Toronto, Ontario - Canada
 E-mail: dwtoledo@outlook.com
-Portfolio: https://dwtoledo.github.io/portfolio
 GitHub: https://github.com/dwtoledo
 LinkedIn: https://www.linkedin.com/in/dwtoledo
 
 SUMMARY:
-  • Experienced in developing accessible and user-friendly interfaces for responsive web applications;
+  • Experienced in developing, testing and implementing accessible and user-friendly interfaces for responsive web applications;
   • Skilled in Agile/Scrum methodologies, collaborating with cross-functional teams, and efficiently managing the development life cycle.
   • Enhanced adaptability, communication, resilience, and teamwork through seven years as a Manufacturing Engineer and four as an Entrepreneur, resulting in high-quality work and analytical process-driven thinking.
 
 TECHNOLOGIES I HAVE WORKED WITH:
-  • HTML, CSS, SCSS, JavaScript, TypeScript, Angular, AngularJS, Figma, Microsoft Azure DevOps, Git, REST Client, Material UI components, Bootstrap, and CI/CD (Continuous Integration & Deployment).
+  • HTML, CSS, SCSS, JavaScript, TypeScript, Angular, AngularJS, RxJS, Figma, Microsoft Azure DevOps, Git, REST Client, Material Design, Bootstrap, and CI/CD (Continuous Integration & Deployment).
 
-TECHNOLOGIES I HAVE NOT WORKED, BUT I'M FAMILIAR WITH:
-  • Python, React, React Hooks, React Context API, Zod data validations, CSS modules, Styled-components, TailwindCSS, Radix and Shadcn UI components, TDD (Test-driven development) with Jest, and OOP (Object-oriented Programming).
+TECHNOLOGIES I HAVE NOT WORKED WITH, BUT I'M FAMILIAR WITH:
+  • Python, Node.js, Express.js, React, React Hooks, Context API, Zod data validations, CSS modules, Styled-components, TailwindCSS, Radix Shadcn UI, TDD (Test-driven development) with Jest, and OOP (Object-oriented Programming).
 
 WORK EXPERIENCE:
-  • Front End Developer at InterPlayers (Feb, 2021 - Feb, 2023):
-    - Designed interfaces with Figma and developed them with HTML, SCSS, JavaScript, TypeScript and Angular 8 in collaboration with the field support team to accelerate issue resolutions and boost their productivity by 35%;
-    - Facilitated the seamless distribution of 'vouchers' to pharmaceutical representatives and physicians using Angular 8, which led to contracts with three major pharmaceutical companies due to an excellent user experience and efficient REST API integration due high data processing;
-    - Customize a SaaS (Software as a Service) AngularJs marketplace for different customers' visual identities. This effort improved the user experience and garnered team recognition while boosting customer satisfaction.
+  • Front End Developer at InterPlayers (From: Feb, 2021 To: Feb, 2023):
+    - Designed and developed interfaces with Figma, HTML, SCSS, JavaScript, TypeScript, Angular 8 in collaboration with the field support team, utilizing Microsoft Azure DevOps for code review, version control and streamlined deployment processes. This collaboration accelerated issue resolutions and boosted their productivity by 35%;
+    - Facilitated the seamless distribution of 'vouchers' to pharmaceutical representatives and physicians using Angular 8, Material UI and efficient REST API client integration, which led to contracts with three major pharmaceuticals due to an excellent user experience even with high background data processing;
+    - Customized a SaaS (Software as a Service) marketplace for different customers' visual identities using AngularJs with Bootstrap. This effort garnered team recognition while boosting customer satisfaction.
 
-  • Manufacturing Engineer at Flex (Feb, 2014 - Sep, 2020);
-  • Manufacturing Engineering Intern at Motorola (Aug, 2011 - Aug, 2013).
+  • Manufacturing Engineer at Flex (From: Feb, 2014 To: Sep, 2020);
+  • Manufacturing Engineering Intern at Motorola (From: Aug, 2011 To: Aug, 2013).
 
 EDUCATION:
   • MBA., Business Management at FGV - Getúlio Vargas Foundation, Brazil (Sep, 2014 - Sep, 2018);
   • B.Eng., Electrical Engineering at PUC - Pontifical Catholic University, Brazil (Feb, 2009 - Dec, 2013).
 
 LANGUAGES:
-  • English and Portuguese.`
+  • Fluent in English;
+  • Portuguese as mother language.`
 
 const customReactMarkdownComponent: Partial<Components> = {
   a: ({ node, children, ...props }) => {
@@ -80,9 +72,14 @@ const customReactMarkdownComponent: Partial<Components> = {
   },
 }
 
+interface MessageParam {
+  role: string,
+  content: string
+}
+
 export function AIChat() {
   const [message, setMessage] = useState('')
-  const [chats, setChats] = useState<Array<ChatCompletionMessageParam>>([])
+  const [chats, setChats] = useState<Array<MessageParam>>([])
   const [isTyping, setIsTyping] = useState(false)
   const { repos, profile } = useContext(GitHubProfileContext)
   const chatWrapper = useRef<HTMLUListElement>(null)
@@ -122,37 +119,59 @@ export function AIChat() {
   }
 
   async function chat(event: FormEvent, message: string) {
-    event.preventDefault()
-    if (!message) return
+    event.preventDefault();
 
-    setIsTyping(true)
+    if (!message) return;
+    let messages = chats;
+    messages.push({ role: 'user', content: message });
 
-    let messages = chats
-    messages.push({ role: 'user', content: message })
+    setIsTyping(true);
+    setChats(messages);
+    setMessage('');
 
-    setChats(messages)
-    setMessage('')
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 90000);
 
-    await openai.chat.completions
-      .create({
-        model: 'gpt-3.5-turbo',
-        temperature: 0,
-        messages: createMessagesRequest(messages),
-      })
-      .then(response => {
-        messages.push(response.choices[0].message)
-        setChats(messages)
-        setIsTyping(false)
-      })
-      .catch(error => {
-        console.log(error)
-      })
+    try {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_KEY}`,
+        },
+        signal: controller.signal,
+        body: JSON.stringify({
+          model: 'gpt-3.5-turbo',
+          temperature: 0,
+          messages: createMessagesRequest(messages),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`AI Assistant error: ${response.status} - ${response.statusText}`);
+      }
+
+      const responseData = await response.json();
+      messages.push(responseData.choices[0].message);
+      setChats(messages);
+      setIsTyping(false);
+
+    } catch (error) {
+      messages.push({
+        content: "⚠️ Unfortunately, I was unable to come up with a response in time. Please try again later.", role: "assistant"
+      });
+      setChats(messages);
+      setIsTyping(false);
+
+    } finally {
+      clearTimeout(timeoutId);
+    }
   }
 
-  function createMessagesRequest(messages: ChatCompletionMessageParam[]) {
-    const principalMessage: ChatCompletionMessageParam = {
+  function createMessagesRequest(messages: Array<MessageParam>) {
+    const principalMessage: MessageParam = {
       role: 'user',
-      content: `Meu nome é Douglas, sou desenvolvedor front-end. Abaixo segue meu currículo e alguns projetos pessoais no Github, ambos estão em inglês. As próximas mensagens serão perguntas de recrutadores. Por favor, responda como se fosse eu, seja objetivo e profissional, insira link para o projeto do github caso a resposta cite o projeto, usando o mesmo idioma da pergunta. Responda as perguntas apenas se ela estiver relacionada ao meu perfil profissional, experiência de trabalho, habilidades técnicas ou projetos no Github. A pergunta deve contribuir para a avaliação de minha adequação para um processo seletivo ou estar diretamente relacionada ao meu currículo. Não reponder que trabalhei profissionalmente com uma tecnologia que o recrutador perguntou e que não consta no meu currículo. A resposta deve estar em markdown. O meu currículo é: '''${myProfessionalBackground}'''. Os meus projetos no GitHub são: '''${convertReposInText()}'''`,
+      content: `Meu nome é Douglas, tenho 32 anos, sou desenvolvedor front-end e estou desempregado em busca de uma recolocação no mercado de trabalho. Abaixo segue meu currículo e alguns projetos pessoais no Github, ambos estão em inglês. As próximas mensagens serão perguntas de recrutadores. Por favor, responda como se fosse eu, seja objetivo e profissional, insira link para o projeto do github caso a resposta cite o projeto, usando o mesmo idioma da pergunta. Responda as perguntas apenas se ela estiver relacionada ao meu perfil profissional, experiência de trabalho, habilidades técnicas ou projetos no Github. A pergunta deve contribuir para a avaliação de minha adequação para um processo seletivo ou estar diretamente relacionada ao meu currículo. Não reponder que trabalhei profissionalmente com uma tecnologia que o recrutador perguntou e que não consta no meu currículo. A resposta deve estar em markdown. O meu currículo é: '''${myProfessionalBackground}'''. Os meus projetos no GitHub são: '''${convertReposInText()}'''`,
     }
     if (chats.length < 3) {
       return [principalMessage, ...messages]
@@ -163,25 +182,25 @@ export function AIChat() {
   function getInputFormButton() {
     if (isTyping) {
       return (
-        <Button type="submit" disabled={isTyping} className='w-32 flex gap-2'>
+        <Button type="submit" disabled={isTyping} className='w-36 flex gap-2'>
           <Loader2 className="h-4 w-4 animate-spin" />
-          <span>Thinking... </span>
+          <span>AI Thinking... </span>
         </Button>)
     } else {
       return (
-        <Button type="submit" disabled={isTyping} className='w-32 flex gap-2'>
-          <Send className="h-4 w-4" />
-          <span>Send</span>
+        <Button type="submit" disabled={isTyping} className='w-36 flex gap-2 items-center'>
+          <Bot className="h-4 w-4" />
+          <span>Ask me!</span>
         </Button>)
     }
   }
 
-  function createChatMessage(chat: ChatCompletionMessageParam, index: number) {
+  function createChatMessage(chat: MessageParam, index: number) {
     switch (chat.role) {
       case 'user':
         return (
-          <li key={index} className='self-end'>
-            <div className='flex items-start gap-4'>
+          <li key={index} className='self-end w-full py-4 border-b last:border-b-0 last:pb-0'>
+            <div className='flex justify-end items-start gap-4 '>
               <div className='flex flex-col items-end'>
                 <span className='font-extrabold text-primary'>You:</span>
                 <ReactMarkdown className="leading-relaxed"
@@ -189,7 +208,7 @@ export function AIChat() {
                   children={chat.content}
                 />
               </div>
-              <Avatar className='h-10 w-10 border-2	border-border'>
+              <Avatar className='h-7 w-7 border-2	border-border'>
                 <AvatarImage src={genericAvatar} />
                 <AvatarFallback>User</AvatarFallback>
               </Avatar>
@@ -198,9 +217,9 @@ export function AIChat() {
         )
       case 'assistant':
         return (
-          <li key={index}>
-            <div className='flex items-start gap-4'>
-              <Avatar className='h-10 w-10 border-2	border-border'>
+          <li key={index} className='self-start w-full py-4 border-b last:border-b-0 last:pb-0'>
+            <div className='flex justify-start items-start gap-4'>
+              <Avatar className='h-7 w-7 border-2	border-border'>
                 <AvatarImage src={profile.avatar_url} />
                 <AvatarFallback>AI Assistant</AvatarFallback>
               </Avatar>
@@ -231,13 +250,12 @@ export function AIChat() {
         </CardDescription>
       </CardHeader>
       <CardContent className='max-h-80 overflow-y-scroll'>
-        <ul className='flex flex-col gap-4' ref={chatWrapper}>
+        <ul className='flex flex-col' ref={chatWrapper}>
           {chats?.length ? chats.map((chat, index) => createChatMessage(chat, index)) : null}
-          <div className='mt-2'></div>
         </ul>
       </CardContent>
       <CardFooter>
-        <form onSubmit={event => chat(event, message)} className='flex gap-2 w-full'>
+        <form onSubmit={event => chat(event, message)} className='flex gap-2 w-full mt-4'>
           <Input
             type="text"
             className='flex-1'
@@ -245,6 +263,7 @@ export function AIChat() {
             value={message}
             onChange={event => setMessage(event.target.value)}
             disabled={isTyping}
+            required
           />
           {getInputFormButton()}
         </form>
