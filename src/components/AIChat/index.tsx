@@ -290,8 +290,10 @@ export function AIChat() {
   }
 
   function submitFormWithExample(example: string) {
-    setMessage(example)
-    setSubmitForm(true)
+    if (!isTyping) {
+      setMessage(example)
+      setSubmitForm(true)
+    }
   }
 
   return (
@@ -310,7 +312,8 @@ export function AIChat() {
               <Badge
                 key={example}
                 variant="secondary"
-                className="self-start hover:cursor-pointer"
+                className="self-start"
+                style={{ cursor: isTyping ? 'not-allowed' : 'pointer' }}
                 onClick={() => submitFormWithExample(example)}
               >
                 {example}
