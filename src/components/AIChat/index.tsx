@@ -312,7 +312,7 @@ export function AIChat() {
               <Badge
                 key={example}
                 variant="secondary"
-                className="self-start"
+                className="self-start text-sm"
                 style={{ cursor: isTyping ? 'not-allowed' : 'pointer' }}
                 onClick={() => submitFormWithExample(example)}
               >
