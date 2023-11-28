@@ -103,7 +103,7 @@ export function AIChat() {
       formRef.current.requestSubmit()
       setSubmitForm(false)
     }
-  }, [submitForm])
+  }, [submitForm, message])
 
   function observeChatMessages() {
     const observer = new MutationObserver(mutationList =>
