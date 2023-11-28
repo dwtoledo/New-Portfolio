@@ -15,18 +15,27 @@ import { Badge } from '../ui/badge'
 
 export function Projects() {
   const { repos } = useContext(GitHubProfileContext)
+
+  function capitalizeGitHubTopics(topic: string) {
+    return topic.charAt(0).toUpperCase() + topic.slice(1)
+  }
+
   return (
     <div className="container py-20 px-10">
       {repos.length ? (
         <p className="text-2xl font-semibold mb-8">
-          Check out these{' '}
-          <b className="text-primary">{repos.length} projects</b> in my GitHub:
+          Spotlight on these{' '}
+          <strong className="text-primary">
+            {repos.length} GitHub projects
+          </strong>
+          :
         </p>
       ) : (
         <div>
           <p className="text-2xl font-semibold mb-8">
-            Look's like <b className="text-primary">I'm unable to connect</b>{' '}
-            with my GitHub 😭
+            Look's like{' '}
+            <strong className="text-primary">I'm unable to connect</strong> with
+            my GitHub 😭
           </p>
           <a
             href="https://github.com/dwtoledo"
@@ -56,8 +65,12 @@ export function Projects() {
                     {repo.topics ? (
                       <div className="flex gap-1 items-center flex-wrap py-4">
                         {repo.topics.map((topic: string) => (
-                          <Badge key={topic} variant="outline">
-                            {topic}
+                          <Badge
+                            key={topic}
+                            variant="secondary"
+                            className="text-sm"
+                          >
+                            {capitalizeGitHubTopics(topic)}
                           </Badge>
                         ))}
                       </div>
