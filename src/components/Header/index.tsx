@@ -18,9 +18,7 @@ export function Header() {
             <AvatarImage src={profile.avatar_url || avatarImg} />
             <AvatarFallback>{profile.name || 'Douglas Toledo'}</AvatarFallback>
           </Avatar>
-          <span className="text-xl font-extrabold">
-            {profile.name || 'Douglas Toledo'}
-          </span>
+          <span className="text-xl font-extrabold">My portfolio</span>
         </div>
 
         <div className="flex gap-x-2">
