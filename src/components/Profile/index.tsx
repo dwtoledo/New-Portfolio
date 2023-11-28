@@ -163,7 +163,7 @@ export function Profile() {
                   </a>
                   <br />4 years of experience at{' '}
                   <a
-                    href="https://viisolutions.combr/"
+                    href="https://viisolutions.com.br/"
                     target="_blank"
                     rel="noreferrer"
                   >
