@@ -16,13 +16,13 @@ import DrugstorePortalBanner from '../../assets/images/drugstore-portal.webp'
 export function WorkExperience() {
   return (
     <div className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-primary via-primary-foreground to-primary">
-      <div className="container py-20 px-10">
+      <div className="container py-20 px-6 md:px-20">
         <p className="text-2xl font-semibold mb-8 text-accent">
           <strong>Professional projects</strong> I have contributed:
         </p>
 
         <div className="flex flex-col gap-6 lg:grid grid-cols-2">
-          <Card>
+          <Card className="sm:p-6">
             <CardHeader>
               <CardTitle>
                 <strong className="text-primary">1# </strong>
@@ -112,7 +112,7 @@ export function WorkExperience() {
               </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="sm:p-6">
             <CardHeader>
               <CardTitle>
                 <strong className="text-primary">2# </strong>
@@ -203,7 +203,7 @@ export function WorkExperience() {
               </div>
             </CardContent>
           </Card>
-          <Card>
+          <Card className="sm:p-6">
             <CardHeader>
               <CardTitle>
                 <strong className="text-primary">3# </strong>

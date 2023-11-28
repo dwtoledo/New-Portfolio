@@ -21,7 +21,7 @@ export function Projects() {
   }
 
   return (
-    <div className="container py-20 px-10">
+    <div className="container py-20 px-6 md:px-20">
       {repos.length ? (
         <p className="text-2xl font-semibold mb-8">
           Spotlight on these{' '}
@@ -54,7 +54,10 @@ export function Projects() {
         {repos.length
           ? repos.map((repo, index) => {
               return (
-                <Card key={repo.id} className="flex flex-col justify-between">
+                <Card
+                  key={repo.id}
+                  className="flex flex-col justify-between sm:p-6"
+                >
                   <CardHeader>
                     <CardTitle>
                       <strong className="text-primary">

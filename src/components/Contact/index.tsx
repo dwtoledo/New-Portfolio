@@ -5,7 +5,7 @@ import Typewriter from 'typewriter-effect'
 export function Contact() {
   return (
     <div className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-primary via-primary-foreground to-primary">
-      <div className="container py-20 px-10 flex flex-col gap-8">
+      <div className="container py-20 flex flex-col gap-8 px-6 md:px-20">
         <p className="text-4xl text-accent">
           My technical skills and creativity are at your disposal!
         </p>
