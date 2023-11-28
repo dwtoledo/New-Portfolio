@@ -6,13 +6,12 @@ import {
   CardTitle,
 } from '../ui/card'
 import { Badge } from '../ui/badge'
-
-import InicioTratamentoBanner from '../../assets/images/inicio-tratamento.webp'
-import B2BMarketplaceBanner from '../../assets/images/b2b-marketplace.webp'
-import DrugstorePortalBanner from '../../assets/images/drugstore-portal.webp'
-
 import { Button } from '../ui/button'
 import { Globe } from 'lucide-react'
+
+import TreatmentInitiationBanner from '../../assets/images/treatment-initiation.webp'
+import B2BMarketplaceBanner from '../../assets/images/b2b-marketplace.webp'
+import DrugstorePortalBanner from '../../assets/images/drugstore-portal.webp'
 
 export function WorkExperience() {
   return (
@@ -89,7 +88,7 @@ export function WorkExperience() {
                 <div className="overflow-hidden rounded-lg border border-border">
                   <img
                     src={DrugstorePortalBanner}
-                    alt="Página de login da aplicação Início de Tratamento, o login é realizado pelo e-mail, senha e após solução do Captcha. Também há uma opção de resetar a senha."
+                    alt="Drugstore Portal website login"
                     className="w-full h-[180px] object-cover transition-all hover:scale-105 sm:w-[180px]"
                   />
                 </div>
@@ -174,8 +173,8 @@ export function WorkExperience() {
               <div className="flex gap-6 flex-col sm:flex-row">
                 <div className="overflow-hidden rounded-lg border border-border">
                   <img
-                    src={InicioTratamentoBanner}
-                    alt="Página de login da aplicação Início de Tratamento, o login é realizado pelo e-mail, senha e após solução do Captcha. Também há uma opção de resetar a senha."
+                    src={TreatmentInitiationBanner}
+                    alt="Treatment Initiation website login"
                     className="w-full h-[180px] object-cover transition-all hover:scale-105 sm:w-[180px]"
                   />
                 </div>
@@ -259,7 +258,7 @@ export function WorkExperience() {
                 <div className="overflow-hidden rounded-lg border border-border">
                   <img
                     src={B2BMarketplaceBanner}
-                    alt="Página de login da aplicação Início de Tratamento, o login é realizado pelo e-mail, senha e após solução do Captcha. Também há uma opção de resetar a senha."
+                    alt="A b2b marketplace website between pharmaceuticals and drugstores"
                     className="w-full h-[180px] object-cover transition-all hover:scale-105 sm:w-[180px]"
                   />
                 </div>
