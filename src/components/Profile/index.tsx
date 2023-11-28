@@ -14,30 +14,72 @@ import {
 export function Profile() {
   const { profile } = useContext(GitHubProfileContext)
 
+  const technicalSkills = [
+    'HTML',
+    'CSS',
+    'SCSS',
+    'JavaScript',
+    'TypeScript',
+    'Angular',
+    'AngularJS',
+    'RxJS',
+    'Material Design',
+    'Figma',
+    'Microsoft Azure DevOps',
+    'REST Client',
+    'Bootstrap',
+    'OOP',
+    'Object Oriented Programming',
+    'Git',
+    '+ More',
+  ]
+  const agileScrumSkills = [
+    'Agile',
+    'Scrum',
+    'Enhance Processes',
+    'Continuous Learning',
+    'Continuous Improvement',
+    'Iterative Development',
+    'Rapid Adaptation',
+    '+ More',
+  ]
+  const softSkills = [
+    'Adaptability',
+    'Communication',
+    'Resilience',
+    'Teamwork',
+    'Analytical Thinking',
+    'Process Optimization',
+    'Quality Assurance',
+    'Project Management',
+    '+ More',
+  ]
+
   return (
     <div className="container py-20 px-10 md:px-20">
       <div className="flex flex-col gap-8 md:flex-row items-center">
         <div className="flex flex-col items-start gap-2 md:w-[420px]">
           <span className="text-4xl font-bold">
-            Hey, I'm {profile.name || 'Douglas Toledo'}
+            Hey, I'm{' '}
+            <strong className="text-primary">
+              {profile.name || 'Douglas Toledo'}
+            </strong>
           </span>
           <code className="bg-muted py-1 font-mono">
             {profile.bio ||
-              'Software Engineer | Front End Web Developer | Industry and Entrepreneur Background'}
+              'Software Engineer | Front End Developer | Angular and React.js Development'}
           </code>
         </div>
         <Tabs defaultValue="software" className="w-full md:flex-1">
           <TabsList>
             <TabsTrigger value="software">Software</TabsTrigger>
-            <TabsTrigger value="industry">Industry</TabsTrigger>
-            <TabsTrigger value="Entrepreneurship">Entrepreneurship</TabsTrigger>
+            <TabsTrigger value="agile-scrum">Agile/Scrum</TabsTrigger>
+            <TabsTrigger value="soft-skills">Soft-skills</TabsTrigger>
           </TabsList>
           <TabsContent value="software">
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">
-                  Front End Web Developer
-                </CardTitle>
+                <CardTitle className="text-base">Front End Developer</CardTitle>
                 <CardDescription>
                   2 years of experience at{' '}
                   <a
@@ -47,121 +89,108 @@ export function Profile() {
                   >
                     <u>InterPlayers</u>
                   </a>
-                  :
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <span>
-                  Experienced developer with Agile and Scrum methodologies
-                  expertise. Also, with MBA and engineering degrees, I help
-                  companies drive measurable results and achieve digital
-                  excellence through innovative solutions.
+                <div>
+                  <span>
+                    Experienced in developing, testing and implementing
+                    accessible and user-friendly interfaces for responsive web
+                    applications;
+                  </span>
                   <br />
                   <br />
-                  Skills:
-                  <Badge className="ml-1">Accessibility</Badge>
-                  <Badge className="ml-1">Agile Methodology</Badge>
-                  <Badge className="ml-1">Angular 8+</Badge>
-                  <Badge className="ml-1">AngularJS</Badge>
-                  <Badge className="ml-1">Bootstrap</Badge>
-                  <Badge className="ml-1">CI/CD</Badge>
-                  <Badge className="ml-1">CSS</Badge>
-                  <Badge className="ml-1">Data Modelling</Badge>
-                  <Badge className="ml-1">Data Structures</Badge>
-                  <Badge className="ml-1">Figma</Badge>
-                  <Badge className="ml-1">Git</Badge>
-                  <Badge className="ml-1">GitFlow</Badge>
-                  <Badge className="ml-1">HTML</Badge>
-                  <Badge className="ml-1">JavaScript</Badge>
-                  <Badge className="ml-1">JSON</Badge>
-                  <Badge className="ml-1">Microsoft Azure DevOps</Badge>
-                  <Badge className="ml-1">OOP</Badge>
-                  <Badge className="ml-1">Responsive Design</Badge>
-                  <Badge className="ml-1">REST API</Badge>
-                  <Badge className="ml-1">SASS</Badge>
-                  <Badge className="ml-1">Scrum Methodology</Badge>
-                  <Badge className="ml-1">SCSS</Badge>
-                  <Badge className="ml-1">Team Leadership</Badge>
-                  <Badge className="ml-1">Troubleshooting</Badge>
-                  <Badge className="ml-1">TypeScript</Badge>
-                  <Badge className="ml-1">UML</Badge>
-                  <Badge className="ml-1">UX/UI</Badge>
-                  <Badge className="ml-1">+ More</Badge>
-                </span>
+                  <div className="flex gap-2 flex-wrap">
+                    {technicalSkills.map(skill => {
+                      return (
+                        <Badge variant="secondary" className="text-sm">
+                          {skill}
+                        </Badge>
+                      )
+                    })}
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
-          <TabsContent value="industry">
+          <TabsContent value="agile-scrum">
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">Product Enginner</CardTitle>
+                <CardTitle className="text-base">Front End Developer</CardTitle>
                 <CardDescription>
-                  almost 7 years of experience at{' '}
+                  2 years of experience at{' '}
+                  <a
+                    href="https://www.interplayers.com.br/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <u>InterPlayers</u>
+                  </a>
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div>
+                  <span>
+                    Skilled in Agile/Scrum methodologies, collaborating with
+                    cross-functional teams, and efficiently managing the
+                    development life cycle.
+                  </span>
+                  <br />
+                  <br />
+                  <div className="flex gap-2 flex-wrap">
+                    {agileScrumSkills.map(skill => {
+                      return (
+                        <Badge variant="secondary" className="text-sm">
+                          {skill}
+                        </Badge>
+                      )
+                    })}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+          <TabsContent value="soft-skills">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base">
+                  Manufacturing Enginner / Startup Entrepreneur
+                </CardTitle>
+                <CardDescription>
+                  7 years of experience at{' '}
                   <a href="https://flex.com/" target="_blank" rel="noreferrer">
                     <u>Flex</u>
                   </a>
-                  :
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <span>
-                  Before I migrated to the Software Development area I worked in
-                  one of the world's largest electronics manufacturers.
-                  <br />
-                  <br />
-                  <div className="flex gap-1 items-center flex-wrap">
-                    <span>Skills:</span>
-                    <Badge>Adaptability</Badge>
-                    <Badge>Communication</Badge>
-                    <Badge>Conflict Resolution</Badge>
-                    <Badge>Emotional Intelligence</Badge>
-                    <Badge>Leadership</Badge>
-                    <Badge>Problem-Solving</Badge>
-                    <Badge>Teamwork</Badge>
-                    <Badge>Time Management</Badge>
-                    <Badge>+ More</Badge>
-                  </div>
-                </span>
-              </CardContent>
-            </Card>
-          </TabsContent>
-          <TabsContent value="Entrepreneurship">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-base">Startup Entrepeneur</CardTitle>
-                <CardDescription>
-                  almost 4 years of experience at{' '}
+                  <br />4 years of experience at{' '}
                   <a
-                    href="https://viisolutions.com.br/en/home/"
+                    href="https://viisolutions.combr/"
                     target="_blank"
                     rel="noreferrer"
                   >
                     <u>ViiSolutions</u>
                   </a>
-                  :
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <span>
-                  I've entrepreneurial experience developing products,
-                  experiencing acceleration programs, mentoring, funding,
-                  pitching, presenting projects to investors, and winning
-                  awards.
+                <div>
+                  <span>
+                    Enhanced soft-skills and teamwork through seven years as a
+                    Manufacturing Engineer and four as an Entrepreneur,
+                    resulting in high-quality work and analytical,
+                    process-driven thinking.
+                  </span>
                   <br />
                   <br />
-                  <div className="flex gap-1 items-center flex-wrap">
-                    <span>Skills:</span>
-                    <Badge>Customer Focus</Badge>
-                    <Badge>Innovation</Badge>
-                    <Badge>Networking</Badge>
-                    <Badge>Project Management</Badge>
-                    <Badge>Resilience</Badge>
-                    <Badge>Risk Management</Badge>
-                    <Badge>Values</Badge>
-                    <Badge>Vision</Badge>
-                    <Badge>+ More</Badge>
+                  <div className="flex gap-2 flex-wrap">
+                    {softSkills.map(skill => {
+                      return (
+                        <Badge variant="secondary" className="text-sm">
+                          {skill}
+                        </Badge>
+                      )
+                    })}
                   </div>
-                </span>
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
