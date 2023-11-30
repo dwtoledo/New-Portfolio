@@ -16,7 +16,6 @@ import botAvatar from './assets/images/bot-avatar.webp'
 import './index.css'
 import { Button } from './components/ui/button'
 import { Toaster } from './components/ui/toaster'
-import { Badge } from './components/ui/badge'
 import { AIAssistantContext } from './contexts/ai-assistant'
 import { WorkExperience } from './components/WorkExperience'
 
