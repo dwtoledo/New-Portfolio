@@ -9,6 +9,7 @@ import { Projects } from './components/Projects'
 import { Footer } from './components/Footer'
 import { Contact } from './components/Contact'
 import { AIChat } from './components/AIChat'
+import Typewriter from 'typewriter-effect'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import botAvatar from './assets/images/bot-avatar.webp'
@@ -93,7 +94,20 @@ export function App() {
               <AvatarImage src={botAvatar} alt="AI Assistant logo" />
               <AvatarFallback>AI Assistant</AvatarFallback>
             </Avatar>
-            <p className="text-accent font-bold">Chat me!</p>
+            <Typewriter
+              options={{
+                loop: true,
+                wrapperClassName: 'text-accent font-bold',
+                cursorClassName: 'Typewriter__cursor text-accent',
+              }}
+              onInit={typewriter => {
+                typewriter
+                  .typeString('Chat me!')
+                  .pauseFor(60000)
+                  .deleteAll()
+                  .start()
+              }}
+            />
           </Button>
           <Toaster />
         </AIAssistantContext.Provider>
