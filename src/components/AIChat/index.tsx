@@ -54,9 +54,9 @@ LANGUAGES:
   • Portuguese as mother language.`
 
 const questionExamples = [
-  'What is Douglas most recent work experience?',
-  'What are Douglas strengths?',
-  'What soft skills does Douglas have?',
+  'What is your most recent work experience?',
+  'What are your strengths?',
+  'What hard skills do you have?',
 ]
 
 const customReactMarkdownComponent: Partial<Components> = {
@@ -310,8 +310,8 @@ export function AIChat() {
           </Badge>
         </CardTitle>
         <CardDescription>
-          Ask about my profile, experience, and projects!
-          <br /> Please confirm the AI responses with a Douglas interview.
+          Ask me about my profile, work and project experiences! Please confirm
+          the AI responses with me in an interview.
         </CardDescription>
       </CardHeader>
       <CardContent className="max-h-80 overflow-y-scroll">
