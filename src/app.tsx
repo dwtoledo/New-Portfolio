@@ -85,19 +85,16 @@ export function App() {
         <Footer />
         <AIAssistantContext.Provider value={{ isOpen, setIsOpen }}>
           <Button
+            variant="ghost"
             style={{ display: isOpen ? 'none' : 'flex' }}
-            variant="link"
-            className="fixed bottom-12 right-4 flex flex-col gap-2"
+            className="fixed bottom-8 right-0 flex gap-2 rounded-none rounded-tl-lg rounded-bl-lg border-0 h-fit py-2 px-4 bg-complementary hover:bg-complementary-foreground"
             onClick={handleToastOpen}
           >
-            <Avatar className="w-10 h-10">
-              <AvatarImage
-                src={botAvatar}
-                alt="Chat with our AI Assistant logo"
-              />
+            <Avatar className="w-6 h-6">
+              <AvatarImage src={botAvatar} alt="AI Assistant logo" />
               <AvatarFallback>AI Assistant</AvatarFallback>
             </Avatar>
-            <Badge>Try our AI Assistant!</Badge>
+            <p className="text-accent font-bold">Chat me!</p>
           </Button>
           <Toaster />
         </AIAssistantContext.Provider>

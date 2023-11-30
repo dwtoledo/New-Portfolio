@@ -217,7 +217,11 @@ export function AIChat() {
   function getInputFormButton() {
     if (isTyping) {
       return (
-        <Button type="submit" disabled={isTyping} className="w-36 flex gap-2">
+        <Button
+          type="submit"
+          disabled={isTyping}
+          className="w-36 flex gap-2 bg-complementary hover:bg-complementary-foreground"
+        >
           <Loader2 className="h-4 w-4 animate-spin" />
           <span>AI Thinking... </span>
         </Button>
@@ -227,7 +231,7 @@ export function AIChat() {
         <Button
           type="submit"
           disabled={isTyping}
-          className="w-36 flex gap-2 items-center"
+          className="w-36 flex gap-2 items-center bg-complementary hover:bg-complementary-foreground"
         >
           <Bot className="h-4 w-4" />
           <span>Ask me!</span>
@@ -299,7 +303,12 @@ export function AIChat() {
   return (
     <Card className="border-0">
       <CardHeader>
-        <CardTitle>Chat with our AI Assistant!</CardTitle>
+        <CardTitle className="flex items-center gap-2">
+          <span>✨ AI Chat</span>
+          <Badge className="self-start bg-complementary hover:bg-complementary-foreground">
+            beta
+          </Badge>
+        </CardTitle>
         <CardDescription>
           Ask about my profile, experience, and projects!
           <br /> Please confirm the AI responses with a Douglas interview.
