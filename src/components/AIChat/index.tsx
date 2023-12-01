@@ -6,6 +6,13 @@ import botAvatar from '../../assets/images/bot-avatar.webp'
 import genericAvatar from '../../assets/images/generic-avatar.webp'
 
 import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
+
+import {
   Card,
   CardContent,
   CardDescription,
@@ -304,14 +311,27 @@ export function AIChat() {
     <Card className="border-0">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <span>✨ AI Chat</span>
-          <Badge className="self-start bg-complementary hover:bg-complementary-foreground">
-            beta
-          </Badge>
+          <span>✨ Douglas AI Assistant</span>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <Badge className="self-start bg-complementary hover:bg-complementary-foreground">
+                  beta
+                </Badge>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p className="w-[200px] text-popover-foreground">
+                  This assistant is powered by an OpenAI model that has been fed
+                  with my personal data. As it is still in the testing phase,
+                  the AI responses may not always be completely accurate.
+                </p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </CardTitle>
         <CardDescription>
-          Ask me about my profile, work and project experiences! Please confirm
-          the AI responses with me in an interview.
+          Find out things about me faster by asking my AI Assistant. Ask me
+          about my profile, work, and project experiences.
         </CardDescription>
       </CardHeader>
       <CardContent className="max-h-80 overflow-y-scroll">
