@@ -102,7 +102,7 @@ export function App() {
               }}
               onInit={typewriter => {
                 typewriter
-                  .typeString('Chat me!')
+                  .typeString('Try my AI Assistant!')
                   .pauseFor(60000)
                   .deleteAll()
                   .start()
