@@ -103,7 +103,11 @@ export function Profile() {
                   <div className="flex gap-2 flex-wrap">
                     {technicalSkills.map(skill => {
                       return (
-                        <Badge variant="secondary" className="text-sm">
+                        <Badge
+                          key={skill}
+                          variant="secondary"
+                          className="text-sm"
+                        >
                           {skill}
                         </Badge>
                       )
@@ -140,7 +144,11 @@ export function Profile() {
                   <div className="flex gap-2 flex-wrap">
                     {agileScrumSkills.map(skill => {
                       return (
-                        <Badge variant="secondary" className="text-sm">
+                        <Badge
+                          key={skill}
+                          variant="secondary"
+                          className="text-sm"
+                        >
                           {skill}
                         </Badge>
                       )
@@ -184,7 +192,11 @@ export function Profile() {
                   <div className="flex gap-2 flex-wrap">
                     {softSkills.map(skill => {
                       return (
-                        <Badge variant="secondary" className="text-sm">
+                        <Badge
+                          key={skill}
+                          variant="secondary"
+                          className="text-sm"
+                        >
                           {skill}
                         </Badge>
                       )
