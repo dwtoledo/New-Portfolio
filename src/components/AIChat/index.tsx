@@ -312,10 +312,10 @@ export function AIChat() {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <span>✨ Douglas AI Assistant</span>
-          <TooltipProvider>
+          <TooltipProvider delayDuration={0}>
             <Tooltip>
               <TooltipTrigger>
-                <Badge className="self-start bg-complementary hover:bg-complementary-foreground">
+                <Badge className="self-start bg-complementary hover:cursor-default hover:bg-complementary-foreground">
                   beta
                 </Badge>
               </TooltipTrigger>
