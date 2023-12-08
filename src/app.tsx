@@ -27,6 +27,7 @@ const publicRepoNamesToRemove = [
   'Google-Search-Clone',
   'Funko-Store',
   'JS-Unit-Tests-with-Jest',
+  'python-projects',
 ]
 
 export function App() {
