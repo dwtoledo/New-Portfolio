@@ -10,6 +10,7 @@ import { Footer } from './components/Footer'
 import { Contact } from './components/Contact'
 import { AIChat } from './components/AIChat'
 import Typewriter from 'typewriter-effect'
+import axios from 'axios'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import botAvatar from './assets/images/bot-avatar.webp'
@@ -42,22 +43,32 @@ export function App() {
   }, [])
 
   async function getGitHubProfileData() {
-    await fetch('https://api.github.com/users/dwtoledo').then(response =>
-      response.json().then(data => {
-        setProfile(data)
-      }),
-    )
+    axios
+      .get('https://api.github.com/users/dwtoledo', {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_REPO_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(response => {
+        setProfile(response.data)
+      })
   }
 
   async function getGitHubPublicRepos() {
-    await fetch('https://api.github.com/users/dwtoledo/repos').then(response =>
-      response.json().then(data => {
-        const allPortfolioRepos = data.sort(
+    axios
+      .get('https://api.github.com/users/dwtoledo/repos', {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_REPO_TOKEN}`,
+          'Content-Type': 'application/json',
+        },
+      })
+      .then(response => {
+        const allPortfolioRepos = response.data.sort(
           (a: { id: number }, b: { id: number }) => b.id - a.id,
         )
         setRepos(removeSpecificRepos(allPortfolioRepos))
-      }),
-    )
+      })
   }
 
   function removeSpecificRepos(repos: any) {
