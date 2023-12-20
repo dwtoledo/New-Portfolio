@@ -46,7 +46,7 @@ export function App() {
     axios
       .get('https://api.github.com/users/dwtoledo', {
         headers: {
-          Authorization: `token ${import.meta.env.VITE_REPO_TOKEN}`,
+          Authorization: `Bearer ${import.meta.env.VITE_GH_PERSONAL_TOKEN}`,
           'X-GitHub-Api-Version': '2022-11-28',
         },
       })
@@ -59,7 +59,7 @@ export function App() {
     axios
       .get('https://api.github.com/users/dwtoledo/repos', {
         headers: {
-          Authorization: `token ${import.meta.env.VITE_REPO_TOKEN}`,
+          Authorization: `Bearer ${import.meta.env.VITE_GH_PERSONAL_TOKEN}`,
           'X-GitHub-Api-Version': '2022-11-28',
         },
       })
