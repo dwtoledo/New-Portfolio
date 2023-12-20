@@ -23,6 +23,7 @@ concurrency:
 # Allow repo secrets
 env:
   VITE_OPEN_AI_API_KEY: ${{ secrets.VITE_OPEN_AI_API_KEY }}
+  VITE_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   # Single deploy job since we're just deploying
@@ -32,10 +33,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest      
     steps:
-      - name: Debug Environment Variables
-        run: |
-          echo "VITE_OPEN_AI_API_KEY=${VITE_OPEN_AI_API_KEY} antes do build"
-          env
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Node
