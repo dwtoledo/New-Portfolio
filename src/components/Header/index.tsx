@@ -15,41 +15,53 @@ export function Header() {
       <div className="container flex flex-col items-center gap-y-2 sm:flex-row justify-between">
         <div className="flex gap-x-2 items-center">
           <Avatar>
-            <AvatarImage src={profile.avatar_url || avatarImg} />
+            <AvatarImage
+              src={profile.avatar_url || avatarImg}
+              alt="Douglas Toledo's avatar"
+            />
             <AvatarFallback>{profile.name || 'Douglas Toledo'}</AvatarFallback>
           </Avatar>
-          <span className="text-xl font-extrabold">My portfolio</span>
+          <h1 className="text-xl font-extrabold">My portfolio</h1>
         </div>
 
         <div className="flex gap-x-2">
-          <a
-            href="mailto:dwtoledo@outlook.com"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Button className="flex gap-2 items-center">
+          <Button className="flex gap-2 items-center" asChild>
+            <a
+              href="mailto:dwtoledo@outlook.com"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Mail className="h-[1.2rem] w-[1.2rem]" />
               <span className="hidden sm:inline">Send me an email</span>
-            </Button>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/dwtoledo/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Button>
-              <Linkedin className="h-[1.2rem] w-[1.2rem]" />
-            </Button>
-          </a>
-          <a
-            href={'https://github.com/dwtoledo'}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Button>
-              <Github className="h-[1.2rem] w-[1.2rem]" />
-            </Button>
-          </a>
+            </a>
+          </Button>
+
+          <Button asChild>
+            <a
+              href="https://www.linkedin.com/in/dwtoledo/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Linkedin
+                className="h-[1.2rem] w-[1.2rem]"
+                aria-label="Go to my Linkedin profile"
+              />
+            </a>
+          </Button>
+
+          <Button asChild>
+            <a
+              href={'https://github.com/dwtoledo'}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Github
+                className="h-[1.2rem] w-[1.2rem]"
+                aria-label="Go to my Github profile"
+              />
+            </a>
+          </Button>
+
           <ModeToggle />
         </div>
       </div>
