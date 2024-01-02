@@ -44,10 +44,16 @@ export function AnimationsToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={handleEnableAnimations}>
+        <DropdownMenuItem
+          onClick={handleEnableAnimations}
+          disabled={animations}
+        >
           Enable animations
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={handleDisableAnimations}>
+        <DropdownMenuItem
+          onClick={handleDisableAnimations}
+          disabled={!animations}
+        >
           Disable animations
         </DropdownMenuItem>
       </DropdownMenuContent>

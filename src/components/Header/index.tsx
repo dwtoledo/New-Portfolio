@@ -26,6 +26,10 @@ export function Header() {
         </div>
 
         <div className="flex gap-x-2">
+          <AnimationsToggle />
+
+          <ModeToggle />
+
           <Button className="flex gap-2 items-center" asChild>
             <a
               href="mailto:dwtoledo@outlook.com"
@@ -62,10 +66,6 @@ export function Header() {
               />
             </a>
           </Button>
-
-          <AnimationsToggle />
-
-          <ModeToggle />
         </div>
       </div>
     </header>
