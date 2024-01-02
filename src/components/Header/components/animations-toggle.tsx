@@ -38,7 +38,9 @@ export function AnimationsToggle() {
           className="flex items-center gap-2"
         >
           <Accessibility className="h-[1.2rem] w-[1.2rem]" />
-          <span>Animations {animations ? 'enabled' : 'disabled'}</span>
+          <span className="hidden md:inline">
+            Animations {animations ? 'enabled' : 'disabled'}
+          </span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

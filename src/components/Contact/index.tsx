@@ -35,28 +35,33 @@ export function Contact() {
         </strong>
 
         <div className="flex gap-2 flex-wrap">
-          <a
-            href="mailto:dwtoledo@outlook.com"
-            target="_blank"
-            rel="noreferrer"
+          <Button
+            asChild
+            className="flex gap-2 items-center w-fit"
+            variant="secondary"
           >
-            <Button
-              className="flex gap-2 items-center w-fit"
-              variant="secondary"
+            <a
+              href="mailto:dwtoledo@outlook.com"
+              target="_blank"
+              rel="noreferrer"
             >
               <Mail className="h-[1.2rem] w-[1.2rem]" />
               <span className="hidden sm:inline">Send me an email</span>
-            </Button>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/dwtoledo/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <Button variant="secondary">
-              <Linkedin className="h-[1.2rem] w-[1.2rem]" />
-            </Button>
-          </a>
+            </a>
+          </Button>
+
+          <Button variant="secondary" asChild>
+            <a
+              href="https://www.linkedin.com/in/dwtoledo/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Linkedin
+                className="h-[1.2rem] w-[1.2rem]"
+                aria-label="Go to my Linkedin profile"
+              />
+            </a>
+          </Button>
         </div>
       </div>
     </div>

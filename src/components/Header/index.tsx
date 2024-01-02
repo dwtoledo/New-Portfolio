@@ -33,7 +33,7 @@ export function Header() {
               rel="noreferrer"
             >
               <Mail className="h-[1.2rem] w-[1.2rem]" />
-              <span className="hidden sm:inline">Send me an email</span>
+              <span className="hidden md:inline">Send me an email</span>
             </a>
           </Button>
 

@@ -103,10 +103,10 @@ export function WorkExperience() {
 
                   <Button
                     variant="secondary"
-                    className="flex gap-2 py-2 px-4 sm:w-fit hover:cursor-not-allowed hover:bg-destructive"
+                    className="flex gap-2 items-center py-2 px-4 hover:cursor-not-allowed hover:bg-destructive"
                   >
                     <Globe />
-                    InterPlayers Internal
+                    Website not available
                   </Button>
                 </div>
               </div>
@@ -188,17 +188,18 @@ export function WorkExperience() {
                       with three brazilian major pharmaceuticals!
                     </p>
                   </div>
-                  <a
-                    href="https://adm.iniciodetratamento.com.br"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-full sm:w-auto"
-                  >
-                    <Button className="flex gap-2 py-2 px-4 sm:w-fit">
+
+                  <Button className="py-2 px-4 sm:w-fit" asChild>
+                    <a
+                      href="https://adm.iniciodetratamento.com.br"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex gap-2 items-center"
+                    >
                       <Globe />
-                      Website
-                    </Button>
-                  </a>
+                      Go to website
+                    </a>
+                  </Button>
                 </div>
               </div>
             </CardContent>
@@ -274,17 +275,18 @@ export function WorkExperience() {
                       while boosting customer satisfaction!
                     </p>
                   </div>
-                  <a
-                    href="https://www.pharmalinkonline.com.br/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-full sm:w-auto"
-                  >
-                    <Button className="flex gap-2 py-2 px-4 sm:w-fit">
+
+                  <Button className="py-2 px-4 sm:w-fit" asChild>
+                    <a
+                      href="https://www.pharmalinkonline.com.br/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex gap-2 items-start"
+                    >
                       <Globe />
-                      Website
-                    </Button>
-                  </a>
+                      Go to website
+                    </a>
+                  </Button>
                 </div>
               </div>
             </CardContent>
