@@ -20,6 +20,7 @@ import { Button } from './components/ui/button'
 import { Toaster } from './components/ui/toaster'
 import { AIAssistantContext } from './contexts/ai-assistant'
 import { WorkExperience } from './components/WorkExperience'
+import { AccessibilityContext } from './contexts/accessibility'
 
 const publicRepoNamesToRemove = [
   'portfolio',
@@ -36,6 +37,7 @@ export function App() {
   const [profile, setProfile] = useState({})
   const [repos, setRepos] = useState([])
   const [isOpen, setIsOpen] = useState(false)
+  const [animations, setAnimations] = useState(true)
 
   useEffect(() => {
     getGitHubProfileData()
@@ -43,7 +45,7 @@ export function App() {
   }, [])
 
   async function getGitHubProfileData() {
-    axios
+    await axios
       .get('https://api.github.com/users/dwtoledo', {
         headers: {
           Authorization: `Bearer ${import.meta.env.VITE_GH_PERSONAL_TOKEN}`,
@@ -56,7 +58,7 @@ export function App() {
   }
 
   async function getGitHubPublicRepos() {
-    axios
+    await axios
       .get('https://api.github.com/users/dwtoledo/repos', {
         headers: {
           Authorization: `Bearer ${import.meta.env.VITE_GH_PERSONAL_TOKEN}`,
@@ -82,18 +84,41 @@ export function App() {
     setIsOpen(true)
   }
 
+  function getAnimationText() {
+    return (
+      <Typewriter
+        options={{
+          loop: true,
+          wrapperClassName: 'text-accent font-bold',
+          cursorClassName: 'Typewriter__cursor text-accent',
+        }}
+        onInit={typewriter => {
+          typewriter
+            .typeString('Try my AI Assistant!')
+            .pauseFor(60000)
+            .deleteAll()
+            .start()
+        }}
+      />
+    )
+  }
+
   return (
     <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
       <GitHubProfileContext.Provider value={{ profile, repos }}>
-        <Header />
-        <Profile />
-        <Separator />
-        <WorkExperience />
-        <Separator />
-        <Projects />
-        <Separator />
-        <Contact />
-        <Separator />
+        <AccessibilityContext.Provider value={{ animations, setAnimations }}>
+          <Header />
+          <main>
+            <Profile />
+            <Separator />
+            <WorkExperience />
+            <Separator />
+            <Projects />
+            <Separator />
+            <Contact />
+            <Separator />
+          </main>
+        </AccessibilityContext.Provider>
         <Footer />
         <AIAssistantContext.Provider value={{ isOpen, setIsOpen }}>
           <Button
@@ -106,20 +131,14 @@ export function App() {
               <AvatarImage src={botAvatar} alt="AI Assistant logo" />
               <AvatarFallback>AI Assistant</AvatarFallback>
             </Avatar>
-            <Typewriter
-              options={{
-                loop: true,
-                wrapperClassName: 'text-accent font-bold',
-                cursorClassName: 'Typewriter__cursor text-accent',
-              }}
-              onInit={typewriter => {
-                typewriter
-                  .typeString('Try my AI Assistant!')
-                  .pauseFor(60000)
-                  .deleteAll()
-                  .start()
-              }}
-            />
+
+            {animations ? (
+              getAnimationText()
+            ) : (
+              <span className="text-accent font-bold">
+                Try my AI Assistant!
+              </span>
+            )}
           </Button>
           <Toaster />
         </AIAssistantContext.Provider>
