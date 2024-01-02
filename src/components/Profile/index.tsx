@@ -1,17 +1,16 @@
 import { GitHubProfileContext } from '@/contexts/github-profile'
 import { useContext } from 'react'
+import { ExternalLink } from 'lucide-react'
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
-
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '../ui/card'
-
-import { ExternalLink } from 'lucide-react'
+} from '@/components/ui/card'
 
 export function Profile() {
   const { profile } = useContext(GitHubProfileContext)
