@@ -25,7 +25,7 @@ export function WorkExperience() {
           <Card className="sm:p-6">
             <CardHeader>
               <CardTitle>
-                <strong className="text-primary">1# </strong>
+                <strong className="text-primary">Project 1: </strong>
                 IRC
               </CardTitle>
               <div className="flex flex-wrap gap-2 py-4 items-center">
@@ -33,10 +33,10 @@ export function WorkExperience() {
                   Company: InterPlayers
                 </Badge>
                 <Badge className="text-sm text-primary" variant="outline">
-                  Date: Feb - Oct, 2021
+                  Date: February until October, 2021
                 </Badge>
                 <Badge className="text-sm text-primary" variant="outline">
-                  Technologies:
+                  Technologies I used:
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
                   Figma
@@ -69,18 +69,15 @@ export function WorkExperience() {
                   Microsoft Azure DevOps
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
-                  OOP
-                </Badge>
-                <Badge className="text-sm" variant="secondary">
                   Object Oriented Programming
                 </Badge>
               </div>
               <CardDescription>
-                Worked with the field support team to speed up issue resolutions
-                by designing and developing interfaces with Figma, HTML, SCSS,
-                JavaScript, TypeScript, and Angular 8. Used Microsoft Azure
-                DevOps for code review, version control, and streamlined
-                deployments.
+                <strong>Description:</strong> Worked with the field support team
+                to speed up issue resolutions by designing and developing
+                interfaces with Figma, HTML, SCSS, JavaScript, TypeScript, and
+                Angular 8. Used Microsoft Azure DevOps for code review, version
+                control, and streamlined deployments.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -106,7 +103,7 @@ export function WorkExperience() {
                     className="flex gap-2 items-center py-2 px-4 hover:cursor-not-allowed hover:bg-destructive"
                   >
                     <Globe />
-                    Website not available
+                    IRC website not available
                   </Button>
                 </div>
               </div>
@@ -115,7 +112,7 @@ export function WorkExperience() {
           <Card className="sm:p-6">
             <CardHeader>
               <CardTitle>
-                <strong className="text-primary">2# </strong>
+                <strong className="text-primary">Project 2: </strong>
                 Vouchers Distribution
               </CardTitle>
               <div className="flex flex-wrap gap-2 py-4 items-center">
@@ -123,10 +120,10 @@ export function WorkExperience() {
                   Company: InterPlayers
                 </Badge>
                 <Badge className="text-sm text-primary" variant="outline">
-                  Date: Nov, 2021 - Aug, 2022
+                  Date: November, 2021 until August, 2022
                 </Badge>
                 <Badge className="text-sm text-primary" variant="outline">
-                  Technologies:
+                  Technologies I used:
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
                   HTML
@@ -156,17 +153,15 @@ export function WorkExperience() {
                   Microsoft Azure DevOps
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
-                  OOP
-                </Badge>
-                <Badge className="text-sm" variant="secondary">
                   Object Oriented Programming
                 </Badge>
               </div>
               <CardDescription>
-                Facilitated the distribution of 'vouchers' to pharmaceutical
-                representatives and physicians with an excellent user experience
-                developed using Angular 8, Material UI, and efficient REST API
-                client integration, even with high background data processing .
+                <strong>Description:</strong> Facilitated the distribution of
+                'vouchers' to pharmaceutical representatives and physicians with
+                an excellent user experience developed using Angular 8, Material
+                UI, and efficient REST API client integration, even with high
+                background data processing .
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -197,7 +192,7 @@ export function WorkExperience() {
                       className="flex gap-2 items-center"
                     >
                       <Globe />
-                      Go to website
+                      Go to Vouchers Distribution website
                     </a>
                   </Button>
                 </div>
@@ -207,7 +202,7 @@ export function WorkExperience() {
           <Card className="sm:p-6">
             <CardHeader>
               <CardTitle>
-                <strong className="text-primary">3# </strong>
+                <strong className="text-primary">Project 3: </strong>
                 B2B Marketplace
               </CardTitle>
               <div className="flex flex-wrap gap-2 py-4 items-center">
@@ -215,10 +210,10 @@ export function WorkExperience() {
                   Company: InterPlayers
                 </Badge>
                 <Badge className="text-sm text-primary" variant="outline">
-                  Date: Sep, 2022 - Feb, 2023
+                  Date: September, 2022 until February, 2023
                 </Badge>
                 <Badge className="text-sm text-primary" variant="outline">
-                  Technologies:
+                  Technologies I used:
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
                   HTML
@@ -249,9 +244,12 @@ export function WorkExperience() {
                 </Badge>
               </div>
               <CardDescription>
-                Customized a marketplace using AngularJs and Bootstrap to bring
-                flexibility to the application and to meet the visual identity
-                needs of different customers .
+                <p>
+                  <strong>Description:</strong> Customized a marketplace using
+                  AngularJs and Bootstrap to bring flexibility to the
+                  application and to meet the visual identity needs of different
+                  customers.
+                </p>
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -284,7 +282,7 @@ export function WorkExperience() {
                       className="flex gap-2 items-start"
                     >
                       <Globe />
-                      Go to website
+                      Go to B2B Marketplace website
                     </a>
                   </Button>
                 </div>
