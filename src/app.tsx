@@ -89,8 +89,8 @@ export function App() {
       <Typewriter
         options={{
           loop: true,
-          wrapperClassName: 'text-accent font-bold',
-          cursorClassName: 'Typewriter__cursor text-accent',
+          wrapperClassName: 'text-foreground font-bold',
+          cursorClassName: 'Typewriter__cursor text-foreground',
         }}
         onInit={typewriter => {
           typewriter
