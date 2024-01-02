@@ -59,22 +59,21 @@ export function Profile() {
     <div className="container py-20 px-6 md:px-20">
       <div className="flex flex-col gap-8 md:flex-row items-center">
         <div className="flex flex-col items-start gap-2 md:w-[420px]">
+          <h2 className="text-2xl font-semibold text-primary">About me:</h2>
           <span className="text-4xl font-bold">
-            Hey, I'm{' '}
-            <strong className="text-primary">
-              {profile.name || 'Douglas Toledo'}
-            </strong>
+            {profile.name || 'Douglas Toledo'}
           </span>
           <code className="bg-muted py-1 font-mono">
+            Headline:{' '}
             {profile.bio ||
               'Software Engineer | Front End Developer | Angular and React.js Development'}
           </code>
         </div>
         <Tabs defaultValue="software" className="w-full md:flex-1">
           <TabsList>
-            <TabsTrigger value="software">Software</TabsTrigger>
-            <TabsTrigger value="agile-scrum">Agile/Scrum</TabsTrigger>
-            <TabsTrigger value="soft-skills">Soft-skills</TabsTrigger>
+            <TabsTrigger value="software">Software skills:</TabsTrigger>
+            <TabsTrigger value="agile-scrum">Agile/Scrum skills:</TabsTrigger>
+            <TabsTrigger value="soft-skills">Soft-skills:</TabsTrigger>
           </TabsList>
           <TabsContent value="software">
             <Card>

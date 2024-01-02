@@ -23,13 +23,13 @@ export function Projects() {
   return (
     <div className="container py-20 px-6 md:px-20">
       {repos.length ? (
-        <p className="text-2xl font-semibold mb-8">
+        <h2 className="text-2xl font-semibold mb-8">
           Spotlight on these{' '}
           <strong className="text-primary">
             {repos.length} GitHub projects
           </strong>
           :
-        </p>
+        </h2>
       ) : (
         <div>
           <p className="text-2xl font-semibold mb-8">
