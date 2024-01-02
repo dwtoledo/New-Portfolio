@@ -38,7 +38,7 @@ export function AnimationsToggle() {
           className="flex items-center gap-2"
         >
           <Accessibility className="h-[1.2rem] w-[1.2rem]" />
-          <span className="hidden md:inline">
+          <span className="sr-only">
             Animations {animations ? 'enabled' : 'disabled'}
           </span>
         </Button>
