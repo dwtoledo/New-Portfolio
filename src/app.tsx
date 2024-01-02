@@ -135,7 +135,7 @@ export function App() {
             {animations ? (
               getAnimationText()
             ) : (
-              <span className="text-accent font-bold">
+              <span className="text-foreground font-bold">
                 Try my AI Assistant!
               </span>
             )}

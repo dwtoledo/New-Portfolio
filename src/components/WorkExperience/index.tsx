@@ -15,7 +15,7 @@ import DrugstorePortalBanner from '../../assets/images/drugstore-portal.webp'
 
 export function WorkExperience() {
   return (
-    <div className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-primary via-primary-foreground to-primary">
+    <div className="bg-primary">
       <div className="container py-20 px-6 md:px-20">
         <h2 className="text-2xl font-semibold mb-8 text-accent">
           <strong>Professional projects</strong> I have contributed:

@@ -23,7 +23,7 @@ export function Contact() {
   }
 
   return (
-    <div className="bg-[conic-gradient(at_bottom_left,_var(--tw-gradient-stops))] from-primary via-primary-foreground to-primary">
+    <div className="bg-primary">
       <div className="container py-20 flex flex-col gap-8 px-6 md:px-20">
         <h2 className="text-4xl text-accent">
           My technical skills and creativity are at your disposal!
@@ -46,7 +46,7 @@ export function Contact() {
               rel="noreferrer"
             >
               <Mail className="h-[1.2rem] w-[1.2rem]" />
-              <span className="hidden sm:inline">Send me an email</span>
+              <span className="sr-only md:not-sr-only">Send me an email</span>
             </a>
           </Button>
 

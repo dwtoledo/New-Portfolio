@@ -71,10 +71,12 @@ export function Profile() {
         </div>
         <Tabs defaultValue="development" className="w-full md:flex-1">
           <TabsList>
-            <TabsTrigger value="development">
+            <TabsTrigger value="development" className="text-foreground">
               Agile/Scrum development:
             </TabsTrigger>
-            <TabsTrigger value="soft-skills">Soft-skills:</TabsTrigger>
+            <TabsTrigger value="soft-skills" className="text-foreground">
+              Soft-skills:
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="development">
             <Card>

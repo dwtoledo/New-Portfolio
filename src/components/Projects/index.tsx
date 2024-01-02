@@ -61,12 +61,19 @@ export function Projects() {
                   <CardHeader>
                     <CardTitle>
                       <strong className="text-primary">
-                        {index + 1 + '# '}
+                        Project {index + 1 + ': '}
                       </strong>
                       {repo.name.replaceAll('-', ' ')}
                     </CardTitle>
+
                     {repo.topics ? (
                       <div className="flex gap-1 items-center flex-wrap py-4">
+                        <Badge
+                          className="text-sm text-primary"
+                          variant="outline"
+                        >
+                          Project & Technology tags:
+                        </Badge>
                         {repo.topics.map((topic: string) => (
                           <Badge
                             key={topic}
@@ -79,44 +86,53 @@ export function Projects() {
                       </div>
                     ) : null}
 
-                    <CardDescription>{repo.description}</CardDescription>
+                    <CardDescription>
+                      <strong>Description: </strong>
+                      {repo.description}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="overflow-hidden rounded-lg border border-border">
-                      <a href={repo.html_url} target="_blank" rel="noreferrer">
-                        <img
-                          src={`https://raw.githubusercontent.com/dwtoledo/${repo.name}/${repo.default_branch}/social-banner.webp`}
-                          alt="Project Banner from GitHub"
-                          className="h-auto w-auto object-cover transition-all hover:scale-105"
-                        />
-                      </a>
+                      <img
+                        src={`https://raw.githubusercontent.com/dwtoledo/${repo.name}/${repo.default_branch}/social-banner.webp`}
+                        alt={
+                          repo.name.replaceAll('-', ' ') + ' project screenshot'
+                        }
+                        className="h-auto w-auto object-cover transition-all hover:scale-105"
+                      />
                     </div>
                   </CardContent>
                   <CardFooter className="flex flex-col gap-2 sm:flex-row">
-                    <a
-                      href={repo.html_url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-full sm:w-auto"
+                    <Button
+                      className="flex gap-2 py-2 px-4 w-full sm:w-auto"
+                      asChild
                     >
-                      <Button className="flex gap-2 py-2 px-4 w-full sm:w-auto">
-                        <Github />
-                        <span>GitHub</span>
-                      </Button>
-                    </a>
-
-                    {repo.homepage ? (
                       <a
-                        href={repo.homepage}
+                        href={repo.html_url}
                         target="_blank"
                         rel="noreferrer"
                         className="w-full sm:w-auto"
                       >
-                        <Button className="flex gap-2 py-2 px-4 w-full sm:w-auto">
-                          <Globe />
-                          <span>Try a Live Demo</span>
-                        </Button>
+                        <Github className="h-[1rem] w-[1rem]" />
+                        <span>Go to Github</span>
                       </a>
+                    </Button>
+
+                    {repo.homepage ? (
+                      <Button
+                        className="flex gap-2 py-2 px-4 w-full sm:w-auto"
+                        asChild
+                      >
+                        <a
+                          href={repo.homepage}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="w-full sm:w-auto"
+                        >
+                          <Globe className="h-[1rem] w-[1rem]" />
+                          <span>Go to Website</span>
+                        </a>
+                      </Button>
                     ) : null}
                   </CardFooter>
                 </Card>
