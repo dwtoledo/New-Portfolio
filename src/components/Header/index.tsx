@@ -36,7 +36,10 @@ export function Header() {
               target="_blank"
               rel="noreferrer"
             >
-              <Mail className="h-[1.2rem] w-[1.2rem]" />
+              <Mail
+                className="h-[1.2rem] w-[1.2rem]"
+                aria-label="Send me an email"
+              />
               <span className="hidden md:inline">Send me an email</span>
             </a>
           </Button>
