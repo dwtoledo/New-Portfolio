@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Github, Linkedin, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { AnimationsToggle } from '../animations-toggle'
 import { ModeToggle } from '../mode-toggle'
 
 import { GitHubProfileContext } from '@/contexts/github-profile'
@@ -61,6 +62,8 @@ export function Header() {
               />
             </a>
           </Button>
+
+          <AnimationsToggle />
 
           <ModeToggle />
         </div>
