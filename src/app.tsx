@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { GitHubProfileContext } from './contexts/github-profile'
 import { useToast } from '@/components/ui/use-toast'
-import { ThemeProvider } from './components/theme-provider'
+import { ThemeProvider } from './hooks/theme-provider'
 import { Separator } from './components/ui/separator'
 import { Header } from './components/Header'
 import { Profile } from './components/Profile'
