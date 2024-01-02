@@ -1,5 +1,6 @@
+import { useContext, useEffect } from 'react'
 import { Accessibility } from 'lucide-react'
-
+import { AccessibilityContext } from '@/contexts/accessibility'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -7,8 +8,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { useContext, useEffect } from 'react'
-import { AccessibilityContext } from '@/contexts/accessibility'
 
 export function AnimationsToggle() {
   const { animations, setAnimations } = useContext(AccessibilityContext)
@@ -44,10 +43,10 @@ export function AnimationsToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={handleEnableAnimations}>
-          Enable
+          Enable animations
         </DropdownMenuItem>
         <DropdownMenuItem onClick={handleDisableAnimations}>
-          Disable
+          Disable animations
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
