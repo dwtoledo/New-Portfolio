@@ -71,8 +71,8 @@ export function Profile() {
         </div>
         <Tabs defaultValue="software" className="w-full md:flex-1">
           <TabsList>
-            <TabsTrigger value="software">Software skills:</TabsTrigger>
-            <TabsTrigger value="agile-scrum">Agile/Scrum skills:</TabsTrigger>
+            <TabsTrigger value="software">Software:</TabsTrigger>
+            <TabsTrigger value="agile-scrum">Agile/Scrum:</TabsTrigger>
             <TabsTrigger value="soft-skills">Soft-skills:</TabsTrigger>
           </TabsList>
           <TabsContent value="software">
@@ -80,13 +80,14 @@ export function Profile() {
               <CardHeader>
                 <CardTitle className="text-base">Front End Developer</CardTitle>
                 <CardDescription>
-                  2 years of experience at{' '}
                   <a
                     href="https://www.interplayers.com.br/"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="2 years of experience at InterPlayers, go to company website"
+                    className="underline text-primary"
                   >
-                    <u>InterPlayers</u>
+                    2 years of experience at InterPlayers
                   </a>
                 </CardDescription>
               </CardHeader>
@@ -121,13 +122,14 @@ export function Profile() {
               <CardHeader>
                 <CardTitle className="text-base">Front End Developer</CardTitle>
                 <CardDescription>
-                  2 years of experience at{' '}
                   <a
                     href="https://www.interplayers.com.br/"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="2 years of experience at InterPlayers, go to company website"
+                    className="underline text-primary"
                   >
-                    <u>InterPlayers</u>
+                    2 years of experience at InterPlayers
                   </a>
                 </CardDescription>
               </CardHeader>
@@ -164,17 +166,24 @@ export function Profile() {
                   Manufacturing Enginner / Startup Entrepreneur
                 </CardTitle>
                 <CardDescription>
-                  7 years of experience at{' '}
-                  <a href="https://flex.com/" target="_blank" rel="noreferrer">
-                    <u>Flex</u>
+                  <a
+                    href="https://flex.com/"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="7 years of experience at Flex, go to company website"
+                    className="underline text-primary"
+                  >
+                    7 years of experience at Flex
                   </a>
-                  <br />4 years of experience at{' '}
+                  <br />
                   <a
                     href="https://viisolutions.com.br/"
                     target="_blank"
                     rel="noreferrer"
+                    aria-label="4 years of experience at ViiSolutions, go to startup website"
+                    className="underline text-primary"
                   >
-                    <u>ViiSolutions</u>
+                    4 years of experience at ViiSolutions
                   </a>
                 </CardDescription>
               </CardHeader>
