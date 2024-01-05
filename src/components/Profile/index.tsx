@@ -8,6 +8,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
@@ -72,10 +73,10 @@ export function Profile() {
         <Tabs defaultValue="development" className="w-full md:flex-1">
           <TabsList>
             <TabsTrigger value="development" className="text-foreground">
-              Agile/Scrum development:
+              Software Development:
             </TabsTrigger>
             <TabsTrigger value="soft-skills" className="text-foreground">
-              Soft-skills:
+              Others:
             </TabsTrigger>
           </TabsList>
           <TabsContent value="development">
@@ -96,68 +97,59 @@ export function Profile() {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div>
-                  <ul>
-                    <li>
-                      - Experienced in developing, testing and implementing
-                      accessible and user-friendly interfaces for responsive web
-                      applications;
-                    </li>
-                    <li>
-                      - Worked two years with Angular in an Agile and Scrum
-                      environment, collaborating with cross-functional teams,
-                      and effectively managing the development life cycle using
-                      Microsoft Azure DevOps.
-                    </li>
-                  </ul>
-                  <div className="flex gap-2 flex-wrap mt-4">
-                    <Badge variant="outline" className="text-sm">
-                      Improved skills during this experience include:
-                    </Badge>
-                    {technicalSkills.map(skill => {
-                      return (
-                        <Badge
-                          key={skill}
-                          variant="secondary"
-                          className="text-sm"
-                        >
-                          {skill}
-                        </Badge>
-                      )
-                    })}
-                    {agileScrumSkills.map(skill => {
-                      return (
-                        <Badge
-                          key={skill}
-                          variant="secondary"
-                          className="text-sm"
-                        >
-                          {skill}
-                        </Badge>
-                      )
-                    })}
-                  </div>
-                </div>
+                <ul className="list-inside list-disc">
+                  <li>
+                    Experienced in developing, testing and implementing
+                    accessible (WCAG 2.x, AODA) and user-friendly interfaces for
+                    responsive web applications;
+                  </li>
+                  <li>
+                    Worked two years with Angular in an Agile/Scrum environment,
+                    collaborating with cross-functional teams, and effectively
+                    managing the development life cycle using Microsoft Azure
+                    DevOps.
+                  </li>
+                </ul>
               </CardContent>
+              <CardFooter className="flex gap-2 flex-wrap">
+                <Badge variant="outline" className="text-sm">
+                  Improved skills:
+                </Badge>
+                {technicalSkills.map(skill => {
+                  return (
+                    <Badge key={skill} variant="secondary" className="text-sm">
+                      {skill}
+                    </Badge>
+                  )
+                })}
+                {agileScrumSkills.map(skill => {
+                  return (
+                    <Badge key={skill} variant="secondary" className="text-sm">
+                      {skill}
+                    </Badge>
+                  )
+                })}
+              </CardFooter>
             </Card>
           </TabsContent>
           <TabsContent value="soft-skills">
             <Card>
               <CardHeader>
                 <CardTitle className="text-base">
-                  Manufacturing Enginner and Startup Entrepreneur
+                  Manufacturing Enginner / Startup Entrepreneur
                 </CardTitle>
                 <CardDescription>
                   <a
                     href="https://flex.com/"
                     target="_blank"
                     rel="noreferrer"
-                    aria-label="7 years of experience at Flex, go to company website"
+                    aria-label="Worked 7 years at Flex, go to company website"
                     className="underline text-primary flex gap-1"
                   >
-                    Worked 7 years at Flex
-                    <ExternalLink className="h-[1rem] w-[1rem]" />
+                    <span>Worked 7 years at Flex</span>
+                    <ExternalLink className="h-[1rem] w-[1rem] inline" />
                   </a>
+
                   <a
                     href="https://viisolutions.com.br/"
                     target="_blank"
@@ -165,39 +157,33 @@ export function Profile() {
                     aria-label="4 years of experience at ViiSolutions, go to startup website"
                     className="underline text-primary flex gap-1"
                   >
-                    Worked 4 years at ViiSolutions
+                    <span>Worked 4 years at ViiSolutions</span>
                     <ExternalLink className="h-[1rem] w-[1rem]" />
                   </a>
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div>
-                  <ul>
-                    <li>
-                      - Soft-skills and teamwork have been improved after
-                      working many years in the manufacturing industry and a
-                      startup, resulting in high-quality work and analytical,
-                      process-driven thinking.
-                    </li>
-                  </ul>
-                  <div className="flex gap-2 flex-wrap mt-4">
-                    <Badge variant="outline" className="text-sm">
-                      Improved skills during these experiences include:
-                    </Badge>
-                    {softSkills.map(skill => {
-                      return (
-                        <Badge
-                          key={skill}
-                          variant="secondary"
-                          className="text-sm"
-                        >
-                          {skill}
-                        </Badge>
-                      )
-                    })}
-                  </div>
-                </div>
+                <ul className="list-inside list-disc">
+                  <li>
+                    Soft-skills and teamwork have been improved after working
+                    many years in the manufacturing industry and a startup,
+                    resulting in high-quality work and analytical,
+                    process-driven thinking.
+                  </li>
+                </ul>
               </CardContent>
+              <CardFooter className="flex gap-2 flex-wrap">
+                <Badge variant="outline" className="text-sm">
+                  Improved skills:
+                </Badge>
+                {softSkills.map(skill => {
+                  return (
+                    <Badge key={skill} variant="secondary" className="text-sm">
+                      {skill}
+                    </Badge>
+                  )
+                })}
+              </CardFooter>
             </Card>
           </TabsContent>
         </Tabs>
