@@ -46,11 +46,9 @@ export function Header() {
               href="https://www.linkedin.com/in/dwtoledo/"
               target="_blank"
               rel="noreferrer"
+              aria-label="Go to my Linkedin profile"
             >
-              <Linkedin
-                className="h-[1.2rem] w-[1.2rem]"
-                aria-label="Go to my Linkedin profile"
-              />
+              <Linkedin className="h-[1.2rem] w-[1.2rem]" />
             </a>
           </Button>
 
@@ -59,11 +57,9 @@ export function Header() {
               href={'https://github.com/dwtoledo'}
               target="_blank"
               rel="noreferrer"
+              aria-label="Go to my Github profile"
             >
-              <Github
-                className="h-[1.2rem] w-[1.2rem]"
-                aria-label="Go to my Github profile"
-              />
+              <Github className="h-[1.2rem] w-[1.2rem]" />
             </a>
           </Button>
         </div>

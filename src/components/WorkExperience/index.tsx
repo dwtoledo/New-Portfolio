@@ -2,6 +2,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from '../ui/card'
@@ -28,14 +29,23 @@ export function WorkExperience() {
                 <strong className="text-primary">Project 1: </strong>
                 IRC
               </CardTitle>
-              <div className="flex flex-wrap gap-2 py-4 items-center">
-                <Badge className="text-sm text-primary" variant="outline">
+              <CardDescription>
+                Worked with the field support team to speed up issue resolutions
+                by designing and developing interfaces with Figma, HTML, SCSS,
+                JavaScript, TypeScript, and Angular 8. Used Microsoft Azure
+                DevOps for code review, version control, and streamlined
+                deployments.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2 items-center pb-6">
+                <Badge className="text-sm" variant="outline">
                   Company: InterPlayers
                 </Badge>
-                <Badge className="text-sm text-primary" variant="outline">
-                  Date: February until October, 2021
+                <Badge className="text-sm" variant="outline">
+                  From: February, 2021 To: October, 2021
                 </Badge>
-                <Badge className="text-sm text-primary" variant="outline">
+                <Badge className="text-sm" variant="outline">
                   Technologies I used:
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
@@ -72,38 +82,29 @@ export function WorkExperience() {
                   Object Oriented Programming
                 </Badge>
               </div>
-              <CardDescription>
-                <strong>Description:</strong> Worked with the field support team
-                to speed up issue resolutions by designing and developing
-                interfaces with Figma, HTML, SCSS, JavaScript, TypeScript, and
-                Angular 8. Used Microsoft Azure DevOps for code review, version
-                control, and streamlined deployments.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
               <div className="flex gap-6 flex-col sm:flex-row">
-                <div className="overflow-hidden rounded-lg border border-border">
+                <div className="flex-1 overflow-hidden rounded-lg border border-border">
                   <img
                     src={DrugstorePortalBanner}
-                    alt="Drugstore Portal website login"
-                    className="w-full h-[180px] object-cover transition-all hover:scale-105 sm:w-[180px]"
+                    alt="IRC website login"
+                    className="w-full h-[180px] object-cover transition-all hover:scale-105"
                   />
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="flex-1 flex flex-col gap-4">
                   <div>
-                    <p className="text-sm text-muted-foreground">
-                      This project...
+                    <p className="text-lg">
+                      <strong>📈 This project boosted by 35%</strong> the field
+                      support productivity!
                     </p>
-                    <p className="text-lg font-bold">📈 boosted by 35%</p>
-                    <p className="text-sm">the field support productivity!</p>
                   </div>
 
                   <Button
                     variant="secondary"
-                    className="flex gap-2 items-center py-2 px-4 hover:cursor-not-allowed hover:bg-destructive"
+                    className="flex gap-2 items-center py-2 px-4 sm:w-fit hover:cursor-not-allowed hover:bg-destructive"
+                    aria-label="IRC website not available"
                   >
                     <Globe />
-                    IRC website not available
+                    Website not available
                   </Button>
                 </div>
               </div>
@@ -115,14 +116,22 @@ export function WorkExperience() {
                 <strong className="text-primary">Project 2: </strong>
                 Vouchers Distribution
               </CardTitle>
-              <div className="flex flex-wrap gap-2 py-4 items-center">
-                <Badge className="text-sm text-primary" variant="outline">
+              <CardDescription>
+                Facilitated the distribution of 'vouchers' to pharmaceutical
+                representatives and physicians with an excellent user experience
+                developed using Angular 8, Material UI, and efficient REST API
+                client integration, even with high background data processing .
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2 items-center pb-6">
+                <Badge className="text-sm" variant="outline">
                   Company: InterPlayers
                 </Badge>
-                <Badge className="text-sm text-primary" variant="outline">
-                  Date: November, 2021 until August, 2022
+                <Badge className="text-sm" variant="outline">
+                  From: November, 2021 To: August, 2022
                 </Badge>
-                <Badge className="text-sm text-primary" variant="outline">
+                <Badge className="text-sm" variant="outline">
                   Technologies I used:
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
@@ -156,31 +165,19 @@ export function WorkExperience() {
                   Object Oriented Programming
                 </Badge>
               </div>
-              <CardDescription>
-                <strong>Description:</strong> Facilitated the distribution of
-                'vouchers' to pharmaceutical representatives and physicians with
-                an excellent user experience developed using Angular 8, Material
-                UI, and efficient REST API client integration, even with high
-                background data processing .
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
               <div className="flex gap-6 flex-col sm:flex-row">
-                <div className="overflow-hidden rounded-lg border border-border">
+                <div className="flex-1 overflow-hidden rounded-lg border border-border">
                   <img
                     src={TreatmentInitiationBanner}
-                    alt="Treatment Initiation website login"
-                    className="w-full h-[180px] object-cover transition-all hover:scale-105 sm:w-[180px]"
+                    alt="Vouchers Distribution login website screenshot"
+                    className="w-full h-[180px] object-cover transition-all hover:scale-105 "
                   />
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="flex-1 flex flex-col gap-4">
                   <div>
-                    <p className="text-sm text-muted-foreground">
-                      This project...
-                    </p>
-                    <p className="text-lg font-bold">🎉 led to contracts</p>
-                    <p className="text-sm">
-                      with three brazilian major pharmaceuticals!
+                    <p className="text-lg">
+                      <strong>🎉 This project led to contracts</strong> with
+                      three brazilian major pharmaceuticals!
                     </p>
                   </div>
 
@@ -190,9 +187,10 @@ export function WorkExperience() {
                       target="_blank"
                       rel="noreferrer"
                       className="flex gap-2 items-center"
+                      aria-label="Go to Vouchers Distribution website"
                     >
                       <Globe />
-                      Go to Vouchers Distribution website
+                      <span>Go to Website</span>
                     </a>
                   </Button>
                 </div>
@@ -202,17 +200,24 @@ export function WorkExperience() {
           <Card className="sm:p-6">
             <CardHeader>
               <CardTitle>
-                <strong className="text-primary">Project 3: </strong>
+                <strong className="text-primary text-bold">Project 3: </strong>
                 B2B Marketplace
               </CardTitle>
-              <div className="flex flex-wrap gap-2 py-4 items-center">
-                <Badge className="text-sm text-primary" variant="outline">
+              <CardDescription>
+                Customized a marketplace using AngularJs and Bootstrap to bring
+                flexibility to the application and to meet the visual identity
+                needs of different customers.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="flex flex-wrap gap-2 items-center pb-6">
+                <Badge className="text-sm" variant="outline">
                   Company: InterPlayers
                 </Badge>
-                <Badge className="text-sm text-primary" variant="outline">
-                  Date: September, 2022 until February, 2023
+                <Badge className="text-sm" variant="outline">
+                  From: September, 2022 To: February, 2023
                 </Badge>
-                <Badge className="text-sm text-primary" variant="outline">
+                <Badge className="text-sm" variant="outline">
                   Technologies I used:
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
@@ -243,33 +248,18 @@ export function WorkExperience() {
                   Software as a Service
                 </Badge>
               </div>
-              <CardDescription>
-                <p>
-                  <strong>Description:</strong> Customized a marketplace using
-                  AngularJs and Bootstrap to bring flexibility to the
-                  application and to meet the visual identity needs of different
-                  customers.
-                </p>
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
               <div className="flex gap-6 flex-col sm:flex-row">
-                <div className="overflow-hidden rounded-lg border border-border">
+                <div className="flex-1 overflow-hidden rounded-lg border border-border">
                   <img
                     src={B2BMarketplaceBanner}
-                    alt="A b2b marketplace website between pharmaceuticals and drugstores"
-                    className="w-full h-[180px] object-cover transition-all hover:scale-105 sm:w-[180px]"
+                    alt="B2B Marketplace website screenshot"
+                    className="w-full h-[180px] object-cover transition-all hover:scale-105"
                   />
                 </div>
-                <div className="flex flex-col gap-4">
+                <div className="flex-1 flex flex-col gap-4">
                   <div>
-                    <p className="text-sm text-muted-foreground">
-                      This project...
-                    </p>
-                    <p className="text-lg font-bold">
-                      🫂 garnered team recognition
-                    </p>
-                    <p className="text-sm">
+                    <p className="text-lg">
+                      <strong>🫂 This project garnered team recognition</strong>{' '}
                       while boosting customer satisfaction!
                     </p>
                   </div>
@@ -280,9 +270,10 @@ export function WorkExperience() {
                       target="_blank"
                       rel="noreferrer"
                       className="flex gap-2 items-start"
+                      aria-label="Go to B2B Marketplace website"
                     >
                       <Globe />
-                      Go to B2B Marketplace website
+                      Go to Website
                     </a>
                   </Button>
                 </div>

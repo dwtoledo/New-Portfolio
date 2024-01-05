@@ -112,6 +112,10 @@ export function Projects() {
                         target="_blank"
                         rel="noreferrer"
                         className="w-full sm:w-auto"
+                        aria-label={`Go to ${repo.name.replaceAll(
+                          '-',
+                          ' ',
+                        )} Github page`}
                       >
                         <Github className="h-[1rem] w-[1rem]" />
                         <span>Go to Github</span>
@@ -128,6 +132,10 @@ export function Projects() {
                           target="_blank"
                           rel="noreferrer"
                           className="w-full sm:w-auto"
+                          aria-label={`Go to ${repo.name.replaceAll(
+                            '-',
+                            ' ',
+                          )} website`}
                         >
                           <Globe className="h-[1rem] w-[1rem]" />
                           <span>Go to Website</span>

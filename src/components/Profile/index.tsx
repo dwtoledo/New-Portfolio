@@ -91,7 +91,7 @@ export function Profile() {
                     aria-label="Worked 2 years at InterPlayers, go to company website"
                     className="underline text-primary flex gap-1"
                   >
-                    Worked 2 years at InterPlayers
+                    <span>Worked 2 years at InterPlayers</span>
                     <ExternalLink className="h-[1rem] w-[1rem]" />
                   </a>
                 </CardDescription>
