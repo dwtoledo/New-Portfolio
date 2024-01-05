@@ -25,8 +25,8 @@ export function WorkExperience() {
           <Card className="sm:p-6">
             <CardHeader>
               <CardTitle>
-                <strong className="text-primary">Project 1: </strong>
-                IRC
+                Project 1:
+                <strong className="text-primary"> IRC</strong>
               </CardTitle>
               <CardDescription>
                 Worked with the field support team to speed up issue resolutions
@@ -112,8 +112,8 @@ export function WorkExperience() {
           <Card className="sm:p-6">
             <CardHeader>
               <CardTitle>
-                <strong className="text-primary">Project 2: </strong>
-                Vouchers Distribution
+                Project 2:
+                <strong className="text-primary"> Vouchers Distribution</strong>
               </CardTitle>
               <CardDescription>
                 Facilitated the distribution of 'vouchers' to pharmaceutical
@@ -199,8 +199,11 @@ export function WorkExperience() {
           <Card className="sm:p-6">
             <CardHeader>
               <CardTitle>
-                <strong className="text-primary text-bold">Project 3: </strong>
-                B2B Marketplace
+                Project 3:
+                <strong className="text-primary text-bold">
+                  {' '}
+                  B2B Marketplace
+                </strong>
               </CardTitle>
               <CardDescription>
                 Customized a marketplace using AngularJs and Bootstrap to bring
@@ -262,7 +265,6 @@ export function WorkExperience() {
                       while boosting customer satisfaction!
                     </p>
                   </div>
-
                   <Button className="py-2 px-4 sm:w-fit" asChild>
                     <a
                       href="https://www.pharmalinkonline.com.br/"

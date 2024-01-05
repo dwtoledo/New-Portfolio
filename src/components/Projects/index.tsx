@@ -25,10 +25,7 @@ export function Projects() {
       {repos.length ? (
         <h2 className="text-2xl font-semibold mb-8">
           Spotlight on these{' '}
-          <strong className="text-primary">
-            {repos.length} GitHub projects
-          </strong>
-          :
+          <strong className="text-primary">GitHub projects</strong>:
         </h2>
       ) : (
         <div>
@@ -60,19 +57,18 @@ export function Projects() {
                 >
                   <CardHeader>
                     <CardTitle>
+                      Project {index + 1 + ': '}
                       <strong className="text-primary">
-                        Project {index + 1 + ': '}
+                        {repo.name.replaceAll('-', ' ')}
                       </strong>
-                      {repo.name.replaceAll('-', ' ')}
                     </CardTitle>
-
+                    <CardDescription>{repo.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
                     {repo.topics ? (
-                      <div className="flex gap-1 items-center flex-wrap py-4">
-                        <Badge
-                          className="text-sm text-primary"
-                          variant="outline"
-                        >
-                          Project & Technology tags:
+                      <div className="flex gap-1 items-center flex-wrap pb-6">
+                        <Badge className="text-sm" variant="outline">
+                          Technology tags:
                         </Badge>
                         {repo.topics.map((topic: string) => (
                           <Badge
@@ -85,13 +81,6 @@ export function Projects() {
                         ))}
                       </div>
                     ) : null}
-
-                    <CardDescription>
-                      <strong>Description: </strong>
-                      {repo.description}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
                     <div className="overflow-hidden rounded-lg border border-border">
                       <img
                         src={`https://raw.githubusercontent.com/dwtoledo/${repo.name}/${repo.default_branch}/social-banner.webp`}
@@ -102,7 +91,7 @@ export function Projects() {
                       />
                     </div>
                   </CardContent>
-                  <CardFooter className="flex flex-col gap-2 sm:flex-row">
+                  <CardFooter className="flex flex-col gap-6 sm:flex-row">
                     <Button
                       className="flex gap-2 py-2 px-4 w-full sm:w-auto"
                       asChild
