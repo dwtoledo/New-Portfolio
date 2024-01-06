@@ -10,6 +10,7 @@ export function Contact() {
   function getAnimationText() {
     return (
       <Typewriter
+        aria-hidden="true"
         options={{ loop: true }}
         onInit={typewriter => {
           typewriter
