@@ -65,21 +65,19 @@ export function Projects() {
                     <CardDescription>{repo.description}</CardDescription>
                   </CardHeader>
                   <CardContent>
+                    <Badge className="text-sm mb-2" variant="outline">
+                      Technology tags:
+                    </Badge>
                     {repo.topics ? (
-                      <div className="flex gap-1 items-center flex-wrap pb-6">
-                        <Badge className="text-sm" variant="outline">
-                          Technology tags:
-                        </Badge>
+                      <ul className="flex gap-2 flex-wrap items-center mb-6">
                         {repo.topics.map((topic: string) => (
-                          <Badge
-                            key={topic}
-                            variant="secondary"
-                            className="text-sm"
-                          >
-                            {capitalizeGitHubTopics(topic)}
-                          </Badge>
+                          <li key={topic}>
+                            <Badge variant="secondary" className="text-sm">
+                              {capitalizeGitHubTopics(topic)}
+                            </Badge>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     ) : null}
                     <div className="overflow-hidden rounded-lg border border-border">
                       <img

@@ -16,7 +16,7 @@ import {
 export function Profile() {
   const { profile } = useContext(GitHubProfileContext)
 
-  const technicalSkills = [
+  const developmentSkills = [
     'HTML',
     'CSS',
     'SCSS',
@@ -32,9 +32,6 @@ export function Profile() {
     'Bootstrap',
     'Object Oriented Programming',
     'Git',
-  ]
-
-  const agileScrumSkills = [
     'Agile',
     'Scrum',
     'Enhance Processes',
@@ -111,24 +108,21 @@ export function Profile() {
                   </li>
                 </ul>
               </CardContent>
-              <CardFooter className="flex gap-2 flex-wrap">
+              <CardFooter className="flex flex-col gap-2 items-start">
                 <Badge variant="outline" className="text-sm">
                   Improved skills:
                 </Badge>
-                {technicalSkills.map(skill => {
-                  return (
-                    <Badge key={skill} variant="secondary" className="text-sm">
-                      {skill}
-                    </Badge>
-                  )
-                })}
-                {agileScrumSkills.map(skill => {
-                  return (
-                    <Badge key={skill} variant="secondary" className="text-sm">
-                      {skill}
-                    </Badge>
-                  )
-                })}
+                <ul className="flex gap-2 flex-wrap items-center">
+                  {developmentSkills.map(skill => {
+                    return (
+                      <li key={skill} className="inline">
+                        <Badge variant="secondary" className="text-sm">
+                          {skill}
+                        </Badge>
+                      </li>
+                    )
+                  })}
+                </ul>
               </CardFooter>
             </Card>
           </TabsContent>
@@ -172,17 +166,21 @@ export function Profile() {
                   </li>
                 </ul>
               </CardContent>
-              <CardFooter className="flex gap-2 flex-wrap">
+              <CardFooter className="flex flex-col gap-2 items-start">
                 <Badge variant="outline" className="text-sm">
                   Improved skills:
                 </Badge>
-                {softSkills.map(skill => {
-                  return (
-                    <Badge key={skill} variant="secondary" className="text-sm">
-                      {skill}
-                    </Badge>
-                  )
-                })}
+                <ul className="flex gap-2 flex-wrap">
+                  {softSkills.map(skill => {
+                    return (
+                      <li key={skill}>
+                        <Badge variant="secondary" className="text-sm">
+                          {skill}
+                        </Badge>
+                      </li>
+                    )
+                  })}
+                </ul>
               </CardFooter>
             </Card>
           </TabsContent>
