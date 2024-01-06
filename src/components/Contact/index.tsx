@@ -9,22 +9,16 @@ export function Contact() {
 
   function getAnimationText() {
     return (
-      <>
-        <Typewriter
-          aria-hidden="true"
-          options={{ loop: true }}
-          onInit={typewriter => {
-            typewriter
-              .typeString("Let's create something <br/> amazing together?")
-              .pauseFor(5000)
-              .deleteAll()
-              .start()
-          }}
-        />
-        <span className="sr-only">
-          Let's create something amazing together?
-        </span>
-      </>
+      <Typewriter
+        options={{ loop: true }}
+        onInit={typewriter => {
+          typewriter
+            .typeString("Let's create something <br/> amazing together?")
+            .pauseFor(5000)
+            .deleteAll()
+            .start()
+        }}
+      />
     )
   }
 
@@ -34,7 +28,10 @@ export function Contact() {
         <h2 className="text-4xl text-accent">
           My technical skills and creativity are at your disposal!
         </h2>
-        <strong className="text-4xl text-accent">
+        <strong
+          className="text-4xl text-accent"
+          aria-label="Let's create something amazing together?"
+        >
           {animations
             ? getAnimationText()
             : "Let's create something amazing together?"}
