@@ -9,9 +9,9 @@ import { Badge } from '../ui/badge'
 import { Button } from '../ui/button'
 import { Globe } from 'lucide-react'
 
-import TreatmentInitiationBanner from '../../assets/images/treatment-initiation.webp'
+import VouchersDistributionBanner from '../../assets/images/treatment-initiation.webp'
 import B2BMarketplaceBanner from '../../assets/images/b2b-marketplace.webp'
-import DrugstorePortalBanner from '../../assets/images/drugstore-portal.webp'
+import IRCBanner from '../../assets/images/drugstore-portal.webp'
 
 export function WorkExperience() {
   return (
@@ -84,8 +84,8 @@ export function WorkExperience() {
               <div className="flex gap-6 flex-col sm:flex-row">
                 <div className="flex-1 overflow-hidden rounded-lg border border-border">
                   <img
-                    src={DrugstorePortalBanner}
-                    alt="IRC website login"
+                    src={IRCBanner}
+                    alt="IRC login form website screenshot"
                     className="w-full h-[180px] object-cover transition-all hover:scale-105"
                   />
                 </div>
@@ -167,7 +167,7 @@ export function WorkExperience() {
               <div className="flex gap-6 flex-col sm:flex-row">
                 <div className="flex-1 overflow-hidden rounded-lg border border-border">
                   <img
-                    src={TreatmentInitiationBanner}
+                    src={VouchersDistributionBanner}
                     alt="Vouchers Distribution login website screenshot"
                     className="w-full h-[180px] object-cover transition-all hover:scale-105 "
                   />
