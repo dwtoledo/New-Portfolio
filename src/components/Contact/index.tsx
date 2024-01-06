@@ -9,16 +9,22 @@ export function Contact() {
 
   function getAnimationText() {
     return (
-      <Typewriter
-        options={{ loop: true }}
-        onInit={typewriter => {
-          typewriter
-            .typeString("Let's create something <br/> amazing together?")
-            .pauseFor(5000)
-            .deleteAll()
-            .start()
-        }}
-      />
+      <>
+        <Typewriter
+          aria-hidden="true"
+          options={{ loop: true }}
+          onInit={typewriter => {
+            typewriter
+              .typeString("Let's create something <br/> amazing together?")
+              .pauseFor(5000)
+              .deleteAll()
+              .start()
+          }}
+        />
+        <span className="sr-only">
+          Let's create something amazing together?
+        </span>
+      </>
     )
   }
 
