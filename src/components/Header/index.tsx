@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { Github, Linkedin, Mail } from 'lucide-react'
+import { ExternalLink, Github, Linkedin, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { AnimationsToggle } from './components/animations-toggle'
@@ -12,8 +12,18 @@ export function Header() {
   const { profile } = useContext(GitHubProfileContext)
 
   return (
-    <header className="bg-background border-b py-4 sm:sticky top-0 z-10">
-      <div className="container flex flex-col items-center gap-y-2 sm:flex-row justify-between">
+    <header className="bg-background border-b sm:sticky top-0 z-10">
+      <div className="border-b py-1 flex justify-center">
+        <a
+          href="#main-content"
+          rel=""
+          className="underline text-primary flex gap-1 items-center"
+        >
+          <span>Go to main content</span>
+          <ExternalLink className="h-[1rem] w-[1rem]" />
+        </a>
+      </div>
+      <div className="py-4 container flex flex-col items-center gap-y-2 sm:flex-row justify-between">
         <div className="flex gap-x-2 items-center">
           <Avatar>
             <AvatarImage
@@ -25,7 +35,7 @@ export function Header() {
           <h1 className="text-xl font-extrabold">My portfolio</h1>
         </div>
 
-        <div className="flex gap-x-2">
+        <div className="flex gap-x-2 items-center">
           <AnimationsToggle />
 
           <ModeToggle />

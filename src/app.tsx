@@ -108,7 +108,7 @@ export function App() {
       <GitHubProfileContext.Provider value={{ profile, repos }}>
         <AccessibilityContext.Provider value={{ animations, setAnimations }}>
           <Header />
-          <main>
+          <main id="main-content">
             <Profile />
             <Separator />
             <WorkExperience />
@@ -128,7 +128,7 @@ export function App() {
             onClick={handleToastOpen}
           >
             <Avatar className="w-6 h-6">
-              <AvatarImage src={botAvatar} alt="AI Assistant logo" />
+              <AvatarImage src={botAvatar} alt="A robot" />
               <AvatarFallback>AI Assistant</AvatarFallback>
             </Avatar>
 
