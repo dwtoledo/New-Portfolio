@@ -45,26 +45,29 @@ export function Contact() {
           <Button
             asChild
             className="flex gap-2 items-center w-fit"
-            variant="secondary"
+            variant="link"
           >
             <a
               href="mailto:dwtoledo@outlook.com"
               target="_blank"
               rel="noreferrer"
+              className="flex gap-2 items-center"
             >
-              <Mail className="h-[1.2rem] w-[1.2rem]" />
-              <span className="sr-only md:not-sr-only">Send me an email</span>
+              <Mail className="h-[1.2rem] w-[1.2rem] text-accent" />
+              <span className="sr-only md:not-sr-only text-accent">
+                Send me an email
+              </span>
             </a>
           </Button>
 
-          <Button variant="secondary" asChild>
+          <Button variant="link" asChild>
             <a
               href="https://www.linkedin.com/in/dwtoledo/"
               target="_blank"
               rel="noreferrer"
               aria-label="Go to my Linkedin profile"
             >
-              <Linkedin className="h-[1.2rem] w-[1.2rem]" />
+              <Linkedin className="h-[1.2rem] w-[1.2rem] text-accent" />
             </a>
           </Button>
         </div>
