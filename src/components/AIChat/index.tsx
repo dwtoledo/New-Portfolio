@@ -1,5 +1,4 @@
-import { FormEvent, useContext, useEffect, useRef, useState } from 'react'
-import { GitHubProfileContext } from '../../contexts/github-profile'
+import { FormEvent, useEffect, useRef, useState } from 'react'
 import ReactMarkdown, { Components } from 'react-markdown'
 import { Bot, Loader2 } from 'lucide-react'
 import botAvatar from '../../assets/images/bot-avatar.webp'
@@ -24,41 +23,6 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Badge } from '../ui/badge'
-
-const myProfessionalBackground = `
-Name: Douglas Wilian de Toledo
-Address: Toronto, Ontario - Canada
-E-mail: dwtoledo@outlook.com
-GitHub: https://github.com/dwtoledo
-LinkedIn: https://www.linkedin.com/in/dwtoledo
-
-SUMMARY:
-  • Experienced in developing, testing and implementing accessible and user-friendly interfaces for responsive web applications;
-  • Skilled in Agile/Scrum methodologies, collaborating with cross-functional teams, and efficiently managing the development life cycle.
-  • Enhanced adaptability, communication, resilience, and teamwork through seven years as a Manufacturing Engineer and four as an Entrepreneur, resulting in high-quality work and analytical process-driven thinking.
-
-TECHNOLOGIES I HAVE WORKED WITH:
-  • HTML, CSS, SCSS, JavaScript, TypeScript, Angular, AngularJS, RxJS, Figma, Microsoft Azure DevOps, Git, REST Client, Material Design, Bootstrap, and CI/CD (Continuous Integration & Deployment).
-
-TECHNOLOGIES I HAVE NOT WORKED WITH, BUT I'M FAMILIAR WITH:
-  • Python, Node.js, Express.js, React, React Hooks, Context API, Zod data validations, CSS modules, Styled-components, TailwindCSS, Radix Shadcn UI, TDD (Test-driven development) with Jest, and OOP (Object-oriented Programming).
-
-WORK EXPERIENCE:
-  • Front End Developer at InterPlayers (From: Feb, 2021 To: Feb, 2023):
-    - Designed and developed interfaces with Figma, HTML, SCSS, JavaScript, TypeScript, Angular 8 in collaboration with the field support team, utilizing Microsoft Azure DevOps for code review, version control and streamlined deployment processes. This collaboration accelerated issue resolutions and boosted their productivity by 35%;
-    - Facilitated the seamless distribution of 'vouchers' to pharmaceutical representatives and physicians using Angular 8, Material UI and efficient REST API client integration, which led to contracts with three major pharmaceuticals due to an excellent user experience even with high background data processing;
-    - Customized a SaaS (Software as a Service) marketplace for different customers' visual identities using AngularJs with Bootstrap. This effort garnered team recognition while boosting customer satisfaction.
-
-  • Manufacturing Engineer at Flex (From: Feb, 2014 To: Sep, 2020);
-  • Manufacturing Engineering Intern at Motorola (From: Aug, 2011 To: Aug, 2013).
-
-EDUCATION:
-  • MBA., Business Management at FGV - Getúlio Vargas Foundation, Brazil (Sep, 2014 - Sep, 2018);
-  • B.Eng., Electrical Engineering at PUC - Pontifical Catholic University, Brazil (Feb, 2009 - Dec, 2013).
-
-LANGUAGES:
-  • Fluent in English;
-  • Portuguese as mother language.`
 
 const questionExamples = [
   'What is your most recent work experience?',
@@ -97,7 +61,6 @@ export function AIChat() {
   const [chats, setChats] = useState<Array<MessageParam>>([])
   const [isTyping, setIsTyping] = useState(false)
   const [submitForm, setSubmitForm] = useState(false)
-  const { repos } = useContext(GitHubProfileContext)
   const chatWrapper = useRef<HTMLUListElement>(null)
   const formRef = useRef<HTMLFormElement | null>(null)
 
@@ -138,23 +101,6 @@ export function AIChat() {
       observer.observe(chatWrapper.current, { childList: true, subtree: true })
   }
 
-  function convertReposInText() {
-    if (!repos.length) return 'Error on load my GitHub projects'
-    let convertion: Array<any> = []
-    repos.forEach((repo, index) => {
-      convertion.push(
-        `Project #${index + 1} --- Project Name: ${
-          repo.name
-        } --- Project Description: ${
-          repo.description
-        } --- Project tags: ${repo.topics.join(', ')} --- Project link: ${
-          repo.html_url
-        }`,
-      )
-    })
-    return convertion.join('; ')
-  }
-
   async function chat(event: FormEvent, message: string) {
     event.preventDefault()
 
@@ -171,18 +117,16 @@ export function AIChat() {
 
     try {
       const response = await fetch(
-        'https://api.openai.com/v1/chat/completions',
+        `${import.meta.env.VITE_BACKEND_URL}/chat/completions`,
         {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${import.meta.env.VITE_OPEN_AI_API_KEY}`,
+            accept: 'application/json',
           },
           signal: controller.signal,
           body: JSON.stringify({
-            model: 'gpt-3.5-turbo',
-            temperature: 0,
-            messages: createMessagesRequest(messages),
+            role: 'user',
+            content: message
           }),
         },
       )
@@ -193,8 +137,7 @@ export function AIChat() {
         )
       }
 
-      const responseData = await response.json()
-      messages.push(responseData.choices[0].message)
+      messages.push(await response.json())
       setChats(messages)
       setIsTyping(false)
     } catch (error) {
@@ -208,17 +151,6 @@ export function AIChat() {
     } finally {
       clearTimeout(timeoutId)
     }
-  }
-
-  function createMessagesRequest(messages: Array<MessageParam>) {
-    const principalMessage: MessageParam = {
-      role: 'user',
-      content: `Meu nome é Douglas, tenho 32 anos, sou desenvolvedor front-end e estou desempregado em busca de uma recolocação no mercado de trabalho. Abaixo segue meu currículo e alguns projetos pessoais no Github, ambos estão em inglês. As próximas mensagens serão perguntas de recrutadores. Por favor, responda como se fosse eu, seja objetivo e profissional, insira link para o projeto do github caso a resposta cite algum projeto, usando o mesmo idioma da pergunta. Responda as perguntas apenas se ela estiver relacionada ao meu perfil profissional, experiência de trabalho, habilidades técnicas ou projetos no Github. A pergunta deve contribuir para a avaliação de minha adequação para um processo seletivo ou estar diretamente relacionada ao meu currículo. Não reponder que trabalhei profissionalmente com uma tecnologia que o recrutador perguntou e que não consta no meu currículo. A resposta deve estar em markdown. O meu currículo é: '''${myProfessionalBackground}'''. Os meus projetos no GitHub são: '''${convertReposInText()}'''`,
-    }
-    if (chats.length < 3) {
-      return [principalMessage, ...messages]
-    }
-    return [principalMessage, ...chats.slice(-1)]
   }
 
   function getInputFormButton() {

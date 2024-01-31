@@ -22,8 +22,8 @@ concurrency:
   
 # Allow repo secrets
 env:
-  VITE_OPEN_AI_API_KEY: ${{ secrets.VITE_OPEN_AI_API_KEY }}
   VITE_GH_PERSONAL_TOKEN: ${{ secrets.VITE_GH_PERSONAL_TOKEN }}
+  VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
 
 jobs:
   # Single deploy job since we're just deploying
