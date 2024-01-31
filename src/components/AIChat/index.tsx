@@ -262,8 +262,11 @@ export function AIChat() {
           </TooltipProvider>
         </CardTitle>
         <CardDescription>
-          Find out things about me faster by asking my AI Assistant. Ask me
-          about my profile, work, and project experiences.
+          <p>Find out things about me faster by asking my AI Assistant. Ask me
+          about my profile, work, and project experiences.</p>
+          <br/>
+          <p className='text-xs italic'>*The first answer may have a slight delay.</p>
+          
         </CardDescription>
       </CardHeader>
       <CardContent className="max-h-80 overflow-y-scroll">
