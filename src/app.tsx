@@ -46,12 +46,7 @@ export function App() {
 
   async function getGitHubProfileData() {
     await axios
-      .get('https://api.github.com/users/dwtoledo', {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_GH_PERSONAL_TOKEN}`,
-          'X-GitHub-Api-Version': '2022-11-28',
-        },
-      })
+      .get('https://api.github.com/users/dwtoledo')
       .then(response => {
         setProfile(response.data)
       })
@@ -59,12 +54,7 @@ export function App() {
 
   async function getGitHubPublicRepos() {
     await axios
-      .get('https://api.github.com/users/dwtoledo/repos', {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_GH_PERSONAL_TOKEN}`,
-          'X-GitHub-Api-Version': '2022-11-28',
-        },
-      })
+      .get('https://api.github.com/users/dwtoledo/repos')
       .then(response => {
         const allPortfolioRepos = response.data.sort(
           (a: { id: number }, b: { id: number }) => b.id - a.id,
