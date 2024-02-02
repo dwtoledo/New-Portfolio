@@ -30,6 +30,7 @@ const publicRepoNamesToRemove = [
   'Funko-Store',
   'JS-Unit-Tests-with-Jest',
   'python-projects',
+  'portfolio-API',
 ]
 
 export function App() {
