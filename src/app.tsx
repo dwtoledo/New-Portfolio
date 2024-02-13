@@ -31,7 +31,7 @@ const publicRepoNamesToRemove = [
   'JS-Unit-Tests-with-Jest',
   'python-projects',
   'portfolio-API',
-  'AI-Travel-Guide-API'
+  'API-Endpoints-Portfolio'
 ]
 
 export function App() {
