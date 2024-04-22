@@ -29,11 +29,11 @@ export function WorkExperience() {
                 <strong className="text-primary"> IRC</strong>
               </CardTitle>
               <CardDescription>
-                Worked with the field support team to speed up issue resolutions
-                by designing and developing interfaces with Figma, HTML, SCSS,
-                JavaScript, TypeScript, and Angular 8. Used Microsoft Azure
-                DevOps for code review, version control, and streamlined
-                deployments.
+                Developed an Angular and TypeScript application to streamline
+                access to essential information, reports, and script executions
+                for the field support team. Utilized Azure DevOps for task
+                management, code reviews, version control (Git), and pipeline
+                management, enabling seamless continuous deployment.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -66,7 +66,7 @@ export function WorkExperience() {
                   TypeScript
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
-                  Angular 8+
+                  Angular
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
                   Material Design
@@ -92,8 +92,10 @@ export function WorkExperience() {
                 <div className="flex-1 flex flex-col gap-4">
                   <div>
                     <p className="text-lg">
-                      <strong>📈 This project boosted by 35%</strong> the field
-                      support productivity!
+                      <strong>
+                        📈 This project boosted by 35% within 6 months
+                      </strong>{' '}
+                      the field support productivity!
                     </p>
                   </div>
 
@@ -116,10 +118,11 @@ export function WorkExperience() {
                 <strong className="text-primary"> Vouchers Distribution</strong>
               </CardTitle>
               <CardDescription>
-                Facilitated the distribution of 'vouchers' to pharmaceutical
-                representatives and physicians with an excellent user experience
-                developed using Angular 8, Material UI, and efficient REST API
-                client integration, even with high background data processing .
+                Developed easy-to-use interfaces with Angular and TypeScript,
+                making the distribution process of 'vouchers' from
+                pharmaceuticals, representatives, and doctors to patients in
+                drugstores simpler. Proficiently established a REST API Client
+                for efficient background data handling.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -149,7 +152,7 @@ export function WorkExperience() {
                   TypeScript
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
-                  Angular 8+
+                  Angular
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
                   Material Design
@@ -206,9 +209,10 @@ export function WorkExperience() {
                 </strong>
               </CardTitle>
               <CardDescription>
-                Customized a marketplace using AngularJs and Bootstrap to bring
-                flexibility to the application and to meet the visual identity
-                needs of different customers.
+                Developed flexible and reusable components using AngularJS and
+                Bootstrap within a SaaS pharmaceutical marketplace. Tailored
+                these components to match diverse customer branding preferences,
+                resulting in enhanced platform coherence and brand consistency.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -235,7 +239,7 @@ export function WorkExperience() {
                   JavaScript
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
-                  AngularJs
+                  AngularJS
                 </Badge>
                 <Badge className="text-sm" variant="secondary">
                   REST API Client
@@ -261,8 +265,11 @@ export function WorkExperience() {
                 <div className="flex-1 flex flex-col gap-4">
                   <div>
                     <p className="text-lg">
-                      <strong>🫂 This project garnered team recognition</strong>{' '}
-                      while boosting customer satisfaction!
+                      <strong>
+                        🫂 This project significantly elevated levels of
+                        satisfaction
+                      </strong>{' '}
+                      among users!
                     </p>
                   </div>
                   <Button className="py-2 px-4 sm:w-fit" asChild>

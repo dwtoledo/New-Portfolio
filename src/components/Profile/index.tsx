@@ -96,15 +96,15 @@ export function Profile() {
               <CardContent>
                 <ul className="list-inside list-disc">
                   <li>
-                    Experienced in developing, testing and implementing
-                    accessible (WCAG 2.x, AODA) and user-friendly interfaces for
-                    responsive web applications;
+                    2 years of experience developing accessible, user-friendly
+                    interfaces for responsive web applications using Angular,
+                    JavaScript, TypeScript. Utilized Agile methodologies such as
+                    Scrum and managed the development cycle using Azure DevOps.
                   </li>
                   <li>
-                    Worked two years with Angular in an Agile/Scrum environment,
-                    collaborating with cross-functional teams, and effectively
-                    managing the development life cycle using Microsoft Azure
-                    DevOps.
+                    My past experiences as an engineer and entrepreneur have
+                    honed my ability to integrate technical and business
+                    perspectives for innovative, robust solutions.
                   </li>
                 </ul>
               </CardContent>
@@ -159,7 +159,7 @@ export function Profile() {
               <CardContent>
                 <ul className="list-inside list-disc">
                   <li>
-                    Soft-skills and teamwork have been improved after working
+                    My soft-skills and teamwork have been improved after working
                     many years in the manufacturing industry and a startup,
                     resulting in high-quality work and analytical,
                     process-driven thinking.
