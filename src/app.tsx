@@ -31,7 +31,8 @@ const publicRepoNamesToRemove = [
   'JS-Unit-Tests-with-Jest',
   'python-projects',
   'portfolio-API',
-  'API-Endpoints-Portfolio'
+  'API-Endpoints-Portfolio',
+  'hp-840-g3-hackintosh'
 ]
 
 export function App() {
