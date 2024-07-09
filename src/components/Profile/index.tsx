@@ -1,5 +1,5 @@
 import { GitHubProfileContext } from '@/contexts/github-profile'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { ExternalLink } from 'lucide-react'
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -53,6 +53,12 @@ export function Profile() {
     '+ More',
   ]
 
+  const [tab, setTab] = useState('development')
+
+  const onTabChange = (value: string) => {
+    setTab(value)
+  }
+
   return (
     <div className="container py-20 px-6 md:px-20">
       <div className="flex flex-col gap-8 md:flex-row items-center">
@@ -62,18 +68,21 @@ export function Profile() {
             {profile.name || 'Douglas Toledo'}
           </span>
           <code className="bg-muted py-1 font-mono">
-            Headline:{' '}
             {profile.bio ||
               'Front End Developer | Web Developer | Angular & React with TypeScript'}
           </code>
         </div>
-        <Tabs defaultValue="development" className="w-full md:flex-1">
+        <Tabs
+          className="w-full md:flex-1"
+          value={tab}
+          onValueChange={onTabChange}
+        >
           <TabsList>
             <TabsTrigger value="development" className="text-foreground">
               Software Development:
             </TabsTrigger>
             <TabsTrigger value="soft-skills" className="text-foreground">
-              Others:
+              Past Experiences:
             </TabsTrigger>
           </TabsList>
           <TabsContent value="development">
@@ -102,9 +111,16 @@ export function Profile() {
                     Scrum and managed the development cycle using Azure DevOps.
                   </li>
                   <li>
-                    My past experiences as an engineer and entrepreneur have
-                    honed my ability to integrate technical and business
-                    perspectives for innovative, robust solutions.
+                    My{' '}
+                    <em
+                      onClick={() => onTabChange('soft-skills')}
+                      className="hover:cursor-pointer"
+                    >
+                      past experiences
+                    </em>{' '}
+                    as an engineer and entrepreneur have honed my ability to
+                    integrate technical and business perspectives for
+                    innovative, robust solutions.
                   </li>
                 </ul>
               </CardContent>
