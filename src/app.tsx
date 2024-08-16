@@ -33,7 +33,8 @@ const publicRepoNamesToRemove = [
   'portfolio-API',
   'API-Endpoints-Portfolio',
   'hp-840-g3-hackintosh',
-  'Marvel-Super-Heroes-Web'
+  'Marvel-Super-Heroes-Web',
+  'Aromatherapy-Shop'
 ]
 
 export function App() {
